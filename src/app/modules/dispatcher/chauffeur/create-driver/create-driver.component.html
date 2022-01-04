@@ -1,15 +1,4 @@
 
-{{driverForm.value | json}}
-{{driverForm.invalid | json}}
-{{driverForm.get('nomChauffeur').invalid}}
-{{driverForm.get('prenomChauffeur').invalid}}
-{{driverForm.get('statut').invalid}}
-{{driverForm.get('date_embauche').invalid}}
-{{driverForm.get('date_depart').invalid}}
-{{driverForm.get('contact').invalid}}
-
-
-
 <div style='margin: 2%; padding: 2%' class="card">
 
   <div class="d-flex  justify-content-between p-10">
@@ -27,7 +16,7 @@
               <div class="container" >
                   <div [hidden]="submitted" style="width: 400px;"></div>
                   <div  [hidden]="!submitted"  class="alert alert-success mt-5">
-                      <strong>SUCCES!</strong> LE Chauffeur a bien été enrégistré
+                      <strong>SUCCES!</strong> Le chauffeur a bien été enrégistré
                   </div>
               </div>
 
@@ -38,7 +27,7 @@
                       <div class="col-sm">
                           <label for="nomChauffeur"> Nom chauffeur</label>
                           <input id="nomChauffeur" formControlName="nomChauffeur" class="form-control "
-                                 type="text" placeholder="Nom chauffeur"
+                                 type="text" placeholder="Nom Chauffeur"
                                  [ngClass]="
                         (driverForm.get('nomChauffeur').touched ||
                           driverForm.get('nomChauffeur').dirty) &&
@@ -56,7 +45,7 @@
                       <div class="invalid-feedback">
                         {{
                           driverForm.get("nomChauffeur").hasError("required")
-                            ? " Veuillez entrer la manufacture"
+                            ? " Veuillez entrer le nom du chauffeur"
                             : ""
                         }}
                         {{
@@ -68,9 +57,9 @@
                                  
                       </div>
                       <div  class="col-sm">
-                          <label for="prenomChauffeur"> prénom chauffeur</label>
+                          <label for="prenomChauffeur"> Prénom chauffeur</label>
                           <input id="prenomChauffeur" formControlName="prenomChauffeur" class="form-control"
-                                 type="text" placeholder="Prénom chauffeur"    [ngClass]="
+                                 type="text" placeholder="Prénom Chauffeur"    [ngClass]="
                                  (driverForm.get('prenomChauffeur').touched ||
                                    driverForm.get('prenomChauffeur').dirty) &&
                                  driverForm.get('prenomChauffeur').hasError('required')
@@ -87,7 +76,7 @@
                                <div class="invalid-feedback">
                                 {{
                                   driverForm.get("prenomChauffeur").hasError("required")
-                                    ? " Veuillez entrer la manufacture"
+                                    ? " Veuillez entrer le prenom du chauffeur"
                                     : ""
                                 }}
                                 {{
@@ -98,7 +87,7 @@
                               </div>
                       </div>
                       <div class="col-sm">
-                          <label for="statut"> statut chauffeur</label>
+                          <label for="statut"> Statut chauffeur</label>
                           <select class="custom-select" formControlName="statut" id="statut"
                           [ngClass]="
                                  (driverForm.get('statut').touched ||
@@ -135,7 +124,7 @@
 
                   <div class="row mt-3 mt-5">
                       <div class="col-sm">
-                          <label for="date_embauche"> date embauche</label>
+                          <label for="date_embauche"> Date embauche</label>
                           <input id="date_embauche" formControlName="date_embauche" class="form-control "
                                  type="date" placeholder="Date embauche"  [ngClass]="
                                  (driverForm.get('date_embauche').touched ||
@@ -154,7 +143,7 @@
                                <div class="invalid-feedback">
                                 {{
                                   driverForm.get("date_embauche").hasError("required")
-                                    ? "Choisissez le statut"
+                                    ? "Choisissez la date d'embauche"
                                     : ""
                                 }}
                                 {{
@@ -165,7 +154,7 @@
                               </div>
                       </div>
                       <div  class="col-sm">
-                          <label for="date_depart"> date départ</label>
+                          <label for="date_depart"> Date départ</label>
                           <input id="date_depart" formControlName="date_depart" class="form-control"
                                  type="date" placeholder="Date départ" min="01-01-2020"
                                  [ngClass]="
@@ -185,7 +174,7 @@
                                <div class="invalid-feedback">
                                 {{
                                   driverForm.get("date_depart").hasError("required")
-                                    ? "Choisissez le statut"
+                                    ? "Choisissez la de départ"
                                     : ""
                                 }}
                                 {{
@@ -198,7 +187,7 @@
                       <div class="col-sm">
                         <label for="contact"> Contact </label>
                         <input id="contact" formControlName="contact" class="form-control "
-                               type="number" placeholder="contact du chauffeur"
+                               type="number" placeholder="Contact du chauffeur"
                                [ngClass]="
                       (driverForm.get('contact').touched ||
                         driverForm.get('contact').dirty) &&

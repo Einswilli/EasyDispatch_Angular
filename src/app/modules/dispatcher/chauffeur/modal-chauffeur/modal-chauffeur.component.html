@@ -7,7 +7,7 @@
 <div class="modal-body">
     <div [hidden]="submitted" style="width: 400px;"></div>
     <div  [hidden]="!submitted"  class="alert alert-success mt-5">
-        <strong>SUCCES!</strong> Le chauffeur a bien été enrégistré
+        <strong>SUCCES!</strong> Le chauffeur a bien été Modifié
     </div>
     <form [formGroup]="createChauffeurForm">
     <div class=" form-group  row">
@@ -32,7 +32,7 @@
         <div class="invalid-feedback">
           {{
             createChauffeurForm.get("nomChauffeur").hasError("required")
-              ? " Veuillez entrer la manufacture"
+              ? " Veuillez entrer le nom du chauffeur"
               : ""
           }}
           {{
@@ -44,7 +44,7 @@
                    
         </div>
         <div  class="form-group col-sm">
-            <label for="prenomChauffeur"> prénom chauffeur</label>
+            <label for="prenomChauffeur"> Prénom chauffeur</label>
             <input id="prenomChauffeur" formControlName="prenomChauffeur" class="form-control"
                    type="text" placeholder="Prénom chauffeur"    [ngClass]="
                    (createChauffeurForm.get('prenomChauffeur').touched ||
@@ -63,7 +63,7 @@
                  <div class="invalid-feedback">
                   {{
                     createChauffeurForm.get("prenomChauffeur").hasError("required")
-                      ? " Veuillez entrer la manufacture"
+                      ? " Veuillez entrer le prénom du chauffeur"
                       : ""
                   }}
                   {{
@@ -76,7 +76,7 @@
     </div>
     <div class=" form-group row mt-1">
         <div class="form-group col-sm">
-            <label for="date_embauche"> date embauche</label>
+            <label for="date_embauche"> Date embauche</label>
             <input id="date_embauche" formControlName="date_embauche" class="form-control "
                    type="date" placeholder="Date embauche"  [ngClass]="
                    (createChauffeurForm.get('date_embauche').touched ||
@@ -95,7 +95,7 @@
                  <div class="invalid-feedback">
                   {{
                     createChauffeurForm.get("date_embauche").hasError("required")
-                      ? "Choisissez le statut"
+                      ? "Choisissez la date d'embauche"
                       : ""
                   }}
                   {{
@@ -107,7 +107,7 @@
         </div>
         
         <div  class="form-group col-sm">
-                          <label for="date_depart"> date départ</label>
+                          <label for="date_depart"> Date départ</label>
                           <input id="date_depart" formControlName="date_depart" class="form-control"
                                  type="date" placeholder="Date départ" min="01-01-2020"
                                  [ngClass]="
@@ -127,7 +127,7 @@
                                <div class="invalid-feedback">
                                 {{
                                   createChauffeurForm.get("date_depart").hasError("required")
-                                    ? "Choisissez le statut"
+                                    ? "Choisissez la date de départ"
                                     : ""
                                 }}
                                 {{
@@ -140,7 +140,7 @@
     </div>
     <div class=" form-group row mt-1">
         <div class="form-group">
-            <label for="statut"> statut chauffeur</label>
+            <label for="statut">Statut chauffeur</label>
             <select class="custom-select" formControlName="statut" id="statut"
             [ngClass]="
                    (createChauffeurForm.get('statut').touched ||
@@ -171,7 +171,7 @@
             </div>
         </div>
         <div class="form-group col-sm">
-          <label for="contact"> Nom chauffeur</label>
+          <label for="contact"> Contact</label>
           <input id="contact" formControlName="contact" class="form-control "
                  type="number" placeholder="Contact du chauffeur"
                  [ngClass]="

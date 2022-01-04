@@ -33,35 +33,36 @@
                         <!-- Position Column -->
                         <ng-container matColumnDef="prenomChauffeur">
                             <th mat-header-cell *matHeaderCellDef style='background-color:  #42a5f5; color: white'>Prénom </th>
-                            <td mat-cell *matCellDef="let element"> {{ element.prenomChauffeur}} </td>
+                            <td mat-cell *matCellDef="let element" style="margin-left: 15px;"> {{ element.prenomChauffeur}} </td>
                         </ng-container>
 
                         <!-- Name Column -->
                         <ng-container matColumnDef="nomChauffeur">
                             <th mat-header-cell *matHeaderCellDef style='background-color:  #42a5f5; color: white'> Nom </th>
-                            <td mat-cell *matCellDef="let element"> {{ element.nomChauffeur }} </td>
+                            <td mat-cell *matCellDef="let element" style="margin-left: 15px;" > {{ element.nomChauffeur }} </td>
                         </ng-container>
 
                         <!-- Name Column -->
                         <ng-container matColumnDef="statut">
                             <th mat-header-cell *matHeaderCellDef style='background-color:  #42a5f5; color: white'>Statut</th>
-                            <td mat-cell *matCellDef="let element"> {{ element.statut}} </td>
+                            <td mat-cell *matCellDef="let element" style="margin-left: 15px"> {{ element.statut}} </td>
                         </ng-container>
 
                           <!-- contact Column -->
                           <ng-container matColumnDef="contact">
-                            <th mat-header-cell *matHeaderCellDef style='background-color:  #42a5f5; color: white'>Contact</th>
-                            <td mat-cell *matCellDef="let element"> {{ element.contact}}</td>
+                            <th mat-header-cell *matHeaderCellDef style='background-color:  #42a5f5; color: white; margin-right: 30px;'>Contact</th>
+                            <td mat-cell *matCellDef="let element" style="margin-left: 15px;" > {{ element.contact}}</td>
                         </ng-container>
 
 
 
                         <ng-container matColumnDef="action">
-                            <th mat-header-cell *matHeaderCellDef style='background-color:  #42a5f5; color: white; text-align: center'> Action </th>
+                            <th mat-header-cell *matHeaderCellDef style='background-color:  #42a5f5; color: white; padding-left: 200px;'> Action </th>
                             <td mat-cell *matCellDef="let element"> 
-                                <button type="button" class="btn btn-danger ml-1  mt-1 text-right"  (click)="openFormModal(content,element,1)" title="Supprimer" style="float: right"><i class="material-icons">delete</i></button> 
-                                <button type="button" class="btn btn-primary ml-1 mt-1 text-right"  (click)="openFormModal(content,element,2)" title="Details" style="float: right"><i class="material-icons">loupe</i></button>
-                                <button type="button" class="btn btn-warning mt-1 text-right"  (click)="openFormModal(content,element,3)" title="Modifier" style="float: right"><i class="material-icons">edit</i></button>
+                                <button type="button" class="btn btn-danger ml-1  mt-1 text-right"  (click)="openFormModal(content,element,1)" title="Supprimer" style="float: right;"><i class="material-icons">delete</i></button> 
+
+                                <button type="button" class="btn btn-warning mt-1 ml-1 text-right"  (click)="openFormModal(content,element,3)" title="Modifier" style="float: right;"><i class="material-icons">edit</i></button>
+                                <button type="button" class="btn btn-primary ml-1 mt-1 text-right"  (click)="openFormModal(content,element,2)" title="Details" style="float: right;"><i class="material-icons">loupe</i></button>
                             </td>
                         </ng-container>
 

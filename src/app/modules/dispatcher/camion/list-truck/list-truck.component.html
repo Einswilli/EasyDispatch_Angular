@@ -1,0 +1,120 @@
+
+<div style='margin-top: 2%' class="container mt-5">
+    <div class="row container">
+        <div class="col-md-12">
+
+            <div class="card">
+                <div class="d-flex  justify-content-between p-5">
+                    <div >
+                        <h3 >
+                            LISTE DES CAMIONS
+                        </h3>
+                        <div class="">
+                            <!--<input type="search" id="search" class="form-control" placeholder="Rechercher un client"
+                                   aria-label="Search" style="border-color: #1da1f2" (keyup)="search()" #input/>-->
+                            <mat-form-field appearance="standard">
+                                <mat-label>Rechercher</mat-label>
+                                <input matInput (keyup)="search($event)" placeholder="rechercher camion" #input>
+                            </mat-form-field>
+
+                        </div>
+                    </div>
+
+                    <div class="card-toolbar">
+                        <button class="btn btn-primary" (click)="displayForm()">ajouter un camion</button>
+                    </div>
+                </div>
+
+                <div class="card table-responsive">
+
+                    <table  mat-table [dataSource]="dataSource" class="table table-hover">
+                        <!-- Position Column -->
+
+                        <ng-container matColumnDef="assetId">
+                            <th mat-header-cell *matHeaderCellDef style='background-color:  #42a5f5; color: white'>Asset Id</th>
+                            <td mat-cell *matCellDef="let element"> {{element.assetId}} </td>
+                        </ng-container>
+
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="disponible">
+                            <th mat-header-cell *matHeaderCellDef style='background-color:  #42a5f5; color: white'>Disponible</th>
+                            <td mat-cell *matCellDef="let element"> {{ element.disponible? "Oui":"Non"}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="puissance">
+                            <th mat-header-cell *matHeaderCellDef style='background-color:  #42a5f5; color: white; border: 1 solid black;'>Puissance</th>
+                            <td  mat-cell *matCellDef="let element"> {{ element.puissance}} </td>
+                        </ng-container>
+
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="pret">
+                            <th mat-header-cell *matHeaderCellDef style='background-color:  #42a5f5; color: white'> Pret </th>
+                            <td mat-cell *matCellDef="let element"> {{ element.pret?"Oui":"Non" }} </td>
+                        </ng-container>
+
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="marque">
+                            <th mat-header-cell *matHeaderCellDef style='background-color:  #42a5f5; color: white'>Marque</th>
+                            <td mat-cell *matCellDef="let element"> {{ element.marque}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="matricule">
+                            <th mat-header-cell *matHeaderCellDef style='background-color:  #42a5f5; color: white'> Matricule </th>
+                            <td mat-cell *matCellDef="let element"> {{ element.matricule }} </td>
+                        </ng-container>
+
+
+
+                        <ng-container matColumnDef="action">
+                            <th mat-header-cell *matHeaderCellDef style='background-color:  #42a5f5; color: white; text-align: center;'> Action </th>
+                            <td mat-cell *matCellDef="let element">  
+                                <button type="button" class="btn btn-danger m-1 text-right "  (click)="openFormModal(content,element,2)" title="suppression" style="float: right;"><i class="material-icons">delete</i></button>
+                                <button type="button" class="btn btn-primary m-1 text-right"  (click)="openFormModal(content,element,3)" title="details" style="float: right;"><i class="material-icons">loupe</i></button>
+                                <button type="button" class="btn btn-warning m-1 text-right"  (click)="openFormModal(content,element,1)" title="modifier" style="float: right;"><i class="material-icons">edit</i></button>
+                            </td>
+                        </ng-container>
+
+
+                    
+
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                        <!-- Row shown when there is no matching data. -->
+                        <tr class="mat-row" *matNoDataRow>
+                            <td class="mat-cell" colspan="4">Aucun résultat trouvé pour "{{input.value}}"</td>
+                        </tr>
+                    </table>
+
+                    <mat-paginator [pageSizeOptions]="[10,15,20,25]" class="panel-footer"
+                                   showFirstLastButtons
+                                   aria-label="Select page of periodic elements">
+                    </mat-paginator>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Suppression  du camion</h4>
+
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <span class="bg.light">Confirmer la suppression du camion</span>
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-outline-danger" (click)="DeleteCamion()" (click)="modal.close('Save click')">Supprimer</button>
+
+      <button type="button" class="btn btn-outline-primary" (click)="modal.close('Save click')">Annuler</button>
+    </div>
+  </ng-template>

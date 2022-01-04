@@ -1,0 +1,108 @@
+
+<div style='margin-top: 2%' class="container mt-5">
+    <div class="row  container">
+        <div class="col-md-12">
+
+            <div class="card">
+                <div class="d-flex  justify-content-between p-5">
+                    <div class="card-title">
+                        <h3>
+                            Liste des chauffeurs
+                        </h3>
+                        <div class="">
+                            <mat-form-field appearance="standard">
+                                <mat-label>Rechercher</mat-label>
+                                <input matInput (keyup)="search($event)" placeholder="rechercher chauffeur" #input>
+                            </mat-form-field>
+
+                        </div>
+                    </div>
+                    <div class="card-toolbar">
+                        <button class="btn btn-primary" (click)="displayForm()">ajouter un Chauffeur</button>
+                    </div>
+                </div>
+
+                <div class="card table-responsive">
+
+                    <table  mat-table [dataSource]="dataSource" class="table  table-hover ">
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="id">
+                            <th mat-header-cell *matHeaderCellDef style='background-color:  #42a5f5; color: white'> No. </th>
+                            <td class="align-items-center"   mat-cell *matCellDef="let element"> {{element.id}} </td>
+                        </ng-container>
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="prenomChauffeur">
+                            <th mat-header-cell *matHeaderCellDef style='background-color:  #42a5f5; color: white'>Prénom </th>
+                            <td mat-cell *matCellDef="let element"> {{ element.prenomChauffeur}} </td>
+                        </ng-container>
+
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="nomChauffeur">
+                            <th mat-header-cell *matHeaderCellDef style='background-color:  #42a5f5; color: white'> Nom </th>
+                            <td mat-cell *matCellDef="let element"> {{ element.nomChauffeur }} </td>
+                        </ng-container>
+
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="statut">
+                            <th mat-header-cell *matHeaderCellDef style='background-color:  #42a5f5; color: white'>Statut</th>
+                            <td mat-cell *matCellDef="let element"> {{ element.statut}} </td>
+                        </ng-container>
+
+                          <!-- contact Column -->
+                          <ng-container matColumnDef="contact">
+                            <th mat-header-cell *matHeaderCellDef style='background-color:  #42a5f5; color: white'>Contact</th>
+                            <td mat-cell *matCellDef="let element"> {{ element.contact}}</td>
+                        </ng-container>
+
+
+
+                        <ng-container matColumnDef="action">
+                            <th mat-header-cell *matHeaderCellDef style='background-color:  #42a5f5; color: white; text-align: center'> Action </th>
+                            <td mat-cell *matCellDef="let element"> 
+                                <button type="button" class="btn btn-danger ml-1  mt-1 text-right"  (click)="openFormModal(content,element,1)" title="Supprimer" style="float: right"><i class="material-icons">delete</i></button> 
+                                <button type="button" class="btn btn-primary ml-1 mt-1 text-right"  (click)="openFormModal(content,element,2)" title="Details" style="float: right"><i class="material-icons">loupe</i></button>
+                                <button type="button" class="btn btn-warning mt-1 text-right"  (click)="openFormModal(content,element,3)" title="Modifier" style="float: right"><i class="material-icons">edit</i></button>
+                            </td>
+                        </ng-container>
+
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                        <!-- Row shown when there is no matching data. -->
+                        <tr class="mat-row" *matNoDataRow>
+                            <td class="mat-cell" colspan="4">Aucun résultat trouvé pour "{{input.value}}"</td>
+                        </tr>
+                    </table>
+
+                    <mat-paginator [pageSizeOptions]="[10,15,20,25]" class="panel-footer"
+                                   showFirstLastButtons
+                                   aria-label="Select page of periodic elements">
+                    </mat-paginator>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Suppression  du chauffeur</h4>
+
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <span class="bg.light">Confirmer la suppression du chauffeur</span>
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-outline-danger" (click)="DeleteChauffeur()" (click)="modal.close('Save click')">Supprimer</button>
+
+      <button type="button" class="btn btn-outline-primary" (click)="modal.close('Save click')">Annuler</button>
+    </div>
+  </ng-template>

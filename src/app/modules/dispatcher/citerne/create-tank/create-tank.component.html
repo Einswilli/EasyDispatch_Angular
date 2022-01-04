@@ -1,0 +1,564 @@
+
+<div style='margin: 2%; padding: 2%' class="card" id="main-container-add-tank">
+    <div class="d-flex  justify-content-between p-10">
+        <div class="card-title">
+            <h3 class="card-label ">AJOUTER UNE CITERNE</h3>
+        </div>
+        <div class="card-toolbar">
+            <button type="button" class="btn btn-primary"  (click)="displayList()">Liste des citernes</button>
+        </div>
+    </div>
+
+<div class="row ">
+    <div class="col-md-offset-0 col-md-12">
+        <div class="">
+            <!--                    add new client-->
+            <div class="container" >
+                <div [hidden]="submitted2" style="width: 400px;"></div>
+                <div  [hidden]="!submitted2"  class="alert alert-success mt-5">
+                    <strong>SUCCES!</strong> Les informations sont correctement enregistees.
+                </div>
+                    <!-- <strong>SUCCES!</strong> Les informations sont correctement enregistees.-->
+                
+
+                <form  [formGroup]="citerneForm">
+
+                    <!-- Début de la première ligne -->
+
+                    <div class="row mt-3 mt-5">
+                        <div class="col-sm">
+                            <label for="assetId"> Asset ID</label>
+                            <input id="assetId" formControlName="assetId" class="form-control "
+                                   type="text" placeholder="Asset Id" 
+                                   [ngClass]="(citerneForm.get('assetId').touched 
+                                    || citerneForm.get('assetId').dirty) && citerneForm.get('assetId').hasError('required') ? 'is-invalid'
+                                   :'' || citerneForm.get('assetId').hasError('minlength')
+                                    ? 'is-invalid'
+                                   :'' || ((citerneForm.get('assetId').touched || citerneForm.get('assetId').dirty) && !citerneForm. get('assetId').invalid)? 'is-valid'
+                                    : ''
+                                   "
+                                   />
+                                   <div class="invalid-feedback">
+                                    {{
+                                      citerneForm.get("assetId").hasError("required")
+                                        ? "Veuillez entrer assetId"
+                                        : ""
+                                    }}
+                                    {{
+                                      citerneForm.get("assetId").hasError("minlength")
+                                        ? "5 caractères minimum"
+                                        : ""
+                                    }}
+                                  </div>
+                                   
+                        </div>
+                        <div  class="col-sm">
+                            <label for="description">description</label>
+                            <input id="description" formControlName="description" class="form-control"
+                                   type="text" placeholder="Description" 
+                                   [ngClass]="(citerneForm.get('description').touched 
+                                    || citerneForm.get('description').dirty) && citerneForm.get('description').hasError('required') ? 'is-invalid'
+                                   :'' || citerneForm.get('description').hasError('minlength')
+                                    ? 'is-invalid'
+                                   :'' || ((citerneForm.get('description').touched || citerneForm.get('description').dirty) && !citerneForm. get('description').invalid)? 'is-valid'
+                                    : ''
+                                   "
+                                   />
+                                   <div class="invalid-feedback">
+                                    {{
+                                      citerneForm.get("description").hasError("required")
+                                        ? "Veuillez entrer la description"
+                                        : ""
+                                    }}
+                                    {{
+                                      citerneForm.get("description").hasError("minlength")
+                                        ? "5 caractères minimum"
+                                        : ""
+                                    }}
+                                  </div>
+                        </div>
+
+                        <div  class="col-sm">
+                            <label for="manu">manufacture</label>
+                            <input id="manu" formControlName="manufacture" class="form-control "
+                                   type="text" placeholder="Manufacture"
+                                   [ngClass]="(citerneForm.get('manufacture').touched 
+                                    || citerneForm.get('manufacture').dirty) && citerneForm.get('manufacture').hasError('required') ? 'is-invalid'
+                                   :'' || citerneForm.get('manufacture').hasError('minlength')
+                                    ? 'is-invalid'
+                                   :'' || ((citerneForm.get('manufacture').touched || citerneForm.get('manufacture').dirty) && !citerneForm. get('manufacture').invalid)? 'is-valid'
+                                    : ''
+                                   "
+                                   />
+                                   <div class="invalid-feedback">
+                                        {{
+                                        citerneForm.get("manufacture").hasError("required")
+                                            ? "Veuillez entrer la manufacture"
+                                            : ""
+                                        }}
+                                        {{
+                                        citerneForm.get("manufacture").hasError("minlength")
+                                            ? "5 caractères minimum"
+                                            : ""
+                                        }}
+                                   </div>
+                        </div>
+                    </div>
+
+                    <!-- Début de la deuxième ligne -->
+                    <div class="row mt-3">
+                        <div class="col-sm">
+                            <label for="marque">marque</label>
+                            <input id="marque" formControlName="marque" class="form-control "
+                                   type="text" placeholder="Marque" 
+                                   [ngClass]="(citerneForm.get('marque').touched 
+                                    || citerneForm.get('marque').dirty) && citerneForm.get('marque').hasError('required') ? 'is-invalid'
+                                   :'' || citerneForm.get('marque').hasError('minlength')
+                                    ? 'is-invalid'
+                                   :'' || ((citerneForm.get('marque').touched || citerneForm.get('description').dirty) && !citerneForm. get('marque').invalid)? 'is-valid'
+                                    : ''
+                                   "
+                                   />
+                                   <div class="invalid-feedback">
+                                        {{
+                                        citerneForm.get("marque").hasError("required")
+                                            ? "Veuillez entrer la marque"
+                                            : ""
+                                        }}
+                                        {{
+                                        citerneForm.get("marque").hasError("minlength")
+                                            ? "3 caractères minimum"
+                                            : ""
+                                        }}
+                                   </div>
+                        </div>
+                        <div class="col-sm">
+                            <label for="model">Modèle</label>
+                            <input id="model" formControlName="model" class="form-control"
+                                   type="text"
+                                   placeholder="Modèle" 
+                                   [ngClass]="(citerneForm.get('model').touched 
+                                    || citerneForm.get('model').dirty) && citerneForm.get('model').hasError('required') ? 'is-invalid'
+                                   :'' || citerneForm.get('model').hasError('minlength')
+                                    ? 'is-invalid'
+                                   :'' || ((citerneForm.get('model').touched || citerneForm.get('model').dirty) && !citerneForm. get('model').invalid)? 'is-valid'
+                                    : ''
+                                   "
+                                   />
+                                   <div class="invalid-feedback">
+                                        {{
+                                        citerneForm.get("model").hasError("required")
+                                            ? "Veuillez entrer le modèle"
+                                            : ""
+                                        }}
+                                        {{
+                                        citerneForm.get("model").hasError("minlength")
+                                            ? "5 caractères minimum"
+                                            : ""
+                                        }}
+                                   </div>
+                        </div>
+                        <div class="col-sm">
+                            <label for="mat">Matricule</label>
+                            <input id="mat" formControlName="matricule" class="form-control"
+                                   type="text" placeholder="Matricule (Numéro de plaque)" 
+                                   [ngClass]="(citerneForm.get('matricule').touched 
+                                    || citerneForm.get('matricule').dirty) && citerneForm.get('matricule').hasError('required') ? 'is-invalid'
+                                   :'' || citerneForm.get('matricule').hasError('minlength')
+                                    ? 'is-invalid'
+                                   :'' || ((citerneForm.get('matricule').touched || citerneForm.get('matricule').dirty) && !citerneForm. get('matricule').invalid)? 'is-valid'
+                                    : ''
+                                   "
+                            />
+                            <div class="invalid-feedback">
+                                {{
+                                  citerneForm.get("matricule").hasError("required")
+                                    ? "Veuillez entrer le matricule"
+                                    : ""
+                                }}
+                                {{
+                                  citerneForm.get("matricule").hasError("minlength")
+                                    ? "3 caractères minimum"
+                                    : ""
+                                }}
+                           </div>
+                            
+                        </div>
+                    </div>
+                    <!-- Début de la troisième ligne -->
+
+                    <div class="row mt-3">
+                        <div class="col-sm">
+                            <label for="nbc">Nombre Compartiments</label>
+                            <input id="nbc" formControlName="nbreCompartiment" class="form-control "
+                                   type="number" placeholder="Nbre de compartiment" 
+                                   [ngClass]="(citerneForm.get('nbreCompartiment').touched 
+                                    || citerneForm.get('nbreCompartiment').dirty) && citerneForm.get('nbreCompartiment').hasError('required') ? 'is-invalid'
+                                   :'' || citerneForm.get('nbreCompartiment').hasError('min')
+                                    ? 'is-invalid'
+                                   :'' || ((citerneForm.get('nbreCompartiment').touched || citerneForm.get('nbreCompartiment').dirty) && !citerneForm. get('nbreCompartiment').invalid)? 'is-valid'
+                                    : ''
+                                   "
+                                   />
+                                   <div class="invalid-feedback">
+                                    {{
+                                      citerneForm.get("nbreCompartiment").hasError("required")
+                                        ? "Veuillez entrer le nombre de compartiment"
+                                        : ""
+                                    }}
+                                    {{
+                                      citerneForm.get("nbreCompartiment").hasError("min")
+                                        ? "Le nombre de compartiment ne doit pas être négatif"
+                                        : ""
+                                    }}
+                                   </div>
+                        </div>
+                        <div class="col-sm">
+                            <label for="sn">numero de série</label>
+                            <input id="sn" formControlName="serialNumber" class="form-control"
+                                   type="text"
+                                   placeholder="Numéro de serie" 
+                                   [ngClass]="(citerneForm.get('serialNumber').touched 
+                                    || citerneForm.get('serialNumber').dirty) && citerneForm.get('serialNumber').hasError('required') ? 'is-invalid'
+                                   :'' || citerneForm.get('serialNumber').hasError('minlength')
+                                    ? 'is-invalid'
+                                   :'' || ((citerneForm.get('serialNumber').touched || citerneForm.get('serialNumber').dirty) && !citerneForm. get('serialNumber').invalid)? 'is-valid'
+                                    : ''
+                                   "
+                            />
+                           <div class="invalid-feedback">
+                                {{
+                                  citerneForm.get("serialNumber").hasError("required")
+                                    ? "Veuillez entrer le matricule"
+                                    : ""
+                                }}
+                                {{
+                                  citerneForm.get("serialNumber").hasError("minlength")
+                                    ? "4 caractères minimum"
+                                    : ""
+                                }}
+                           </div>
+                        
+                        </div>
+                        <div class="col-sm">
+                            <label for="capP">capacité pied</label>
+                            <input id="capP" formControlName="capacitePied" class="form-control"
+                                   type="number"
+                                   placeholder="Capacité pied" 
+                                   [ngClass]="(citerneForm.get('capacitePied').touched 
+                                    || citerneForm.get('capacitePied').dirty) && citerneForm.get('capacitePied').hasError('required') ? 'is-invalid'
+                                   :'' || citerneForm.get('capacitePied').hasError('min')
+                                    ? 'is-invalid'
+                                   :'' || ((citerneForm.get('capacitePied').touched || citerneForm.get('capacitePied').dirty) && !citerneForm. get('capacitePied').invalid)? 'is-valid'
+                                    : ''
+                                   "
+                            />
+                            <div class="invalid-feedback">
+                                {{
+                                  citerneForm.get("capacitePied").hasError("required")
+                                    ? "Veuillez entrer la capacité pied"
+                                    : ""
+                                }}
+                                {{
+                                  citerneForm.get("capacitePied").hasError("min")
+                                    ? "La capacité pied ne peut être en desous de 10"
+                                    : ""
+                                }}
+                           </div>
+                            
+                        </div>
+
+                    </div>
+
+                    <!-- Début de la quatrième ligne -->
+
+                    <div class="row mt-3">
+                        <div class="col-sm">
+                            <label for="fabric">Fabric</label>
+                            <select class="custom-select" formControlName="fabric" id="fabric"
+                            [ngClass]="(citerneForm.get('fabric').touched 
+                            || citerneForm.get('fabric').dirty) 
+                            && citerneForm.get('fabric').hasError('required') ? 
+                            'is-invalid'
+                            :'' || citerneForm.get('fabric').hasError('min') ?
+                            'is-invalid'
+                            :'' || ((citerneForm.get('fabric').touched 
+                            || citerneForm.get('fabric').dirty) 
+                            && !citerneForm.get('fabric').invalid) ? 
+                            'is-valid'
+                            :''
+                            " 
+                            >
+                                <option value='' disabled>Année d'acquisition</option>
+                                <option *ngFor="let y of years" value="{{y}}">{{y}}</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                {{
+                                    citerneForm.get("fabric").hasError("required")
+                                      ? "Veuillez choisir l'année"
+                                      : ""
+                                  }}
+                            </div>
+
+
+                        </div>
+                        <div class="col-sm">
+                            <label for="poids">poids</label>
+                            <input id="poids" formControlName="poids" class="form-control"
+                                   type="number"
+                                   placeholder="Poids" 
+                                   [ngClass]="(citerneForm.get('poids').touched 
+                                    || citerneForm.get('poids').dirty) && citerneForm.get('poids').hasError('required') ? 'is-invalid'
+                                   :'' || citerneForm.get('poids').hasError('min')
+                                    ? 'is-invalid'
+                                   :'' || ((citerneForm.get('poids').touched || citerneForm.get('poids').dirty) && !citerneForm. get('poids').invalid)? 'is-valid'
+                                    : ''
+                                   "
+                            />
+                            <div class="invalid-feedback">
+                                {{
+                                  citerneForm.get("poids").hasError("required")
+                                    ? "Veuillez entrer le poids"
+                                    : ""
+                                }}
+                                {{
+                                  citerneForm.get("poids").hasError("min")
+                                    ? "Le poids ne peut être en desous de 10kg"
+                                    : ""
+                                }}
+                           </div>
+                        </div>
+
+                        <div class="col-sm">
+                            <label for="puissance">Puissance</label>
+                            <input id="puissance" formControlName="puissance" class="form-control"
+                                   type="number"
+                                   placeholder="puissance" 
+                                   [ngClass]="(citerneForm.get('puissance').touched 
+                                    || citerneForm.get('puissance').dirty) && citerneForm.get('puissance').hasError('required') ? 'is-invalid'
+                                   :'' || citerneForm.get('puissance').hasError('min')
+                                    ? 'is-invalid'
+                                   :'' || ((citerneForm.get('puissance').touched || citerneForm.get('puissance').dirty) && !citerneForm. get('puissance').invalid)? 'is-valid'
+                                    : ''
+                                   "
+                            />
+                            <div class="invalid-feedback">
+                                {{
+                                  citerneForm.get("puissance").hasError("required")
+                                    ? "Veuillez entrer la puissance"
+                                    : ""
+                                }}
+                                {{
+                                  citerneForm.get("puissance").hasError("min")
+                                    ? "La puissance ne peut être en desous de 10"
+                                    : ""
+                                }}
+                           </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Début de la sixième ligne -->
+
+                    <div class="row mt-3">
+
+                        <div class="col-sm-4">
+                            <label for="entretien">Date de dernier entretien</label>
+                            <input id="entretien" formControlName="entretien" class="form-control"
+                                   type="date" placeholder="Date du dernier entretien" 
+                                   data-date-format="DD MMMM YYYY" value="2015-08-09" 
+                                   [ngClass]="(citerneForm.get('entretien').touched 
+                                    || citerneForm.get('entretien').dirty) 
+                                    && citerneForm.get('entretien').hasError('required') ? 
+                                    'is-invalid'
+                                   :'' || ((citerneForm.get('entretien').touched 
+                                   || citerneForm.get('entretien').dirty) 
+                                   && !citerneForm. get('entretien').invalid)? 
+                                   'is-valid'
+                                    : ''
+                                   "
+                                   />
+                                   <div class="invalid-feedback">
+                                    {{
+                                      citerneForm.get("entretien").hasError("required")
+                                        ? "Veuillez entrer une date adéquate"
+                                        : ""
+                                    }}
+                                    
+                                  </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Début de la septième ligne -->
+
+                    <div class="row mt-3">
+                        <div class="col-sm">
+                            <label class="small mb-1" >Vaccum</label>
+                            <div class="checkbox">
+                                <div class="form-check" style="margin-right: 10px;">
+                                        <input class="form-check-input" type="radio" formControlName="isVaccum" value="true"          
+                                    >
+                                    <label class="form-check-label" >
+                                        Oui
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" formControlName="isVaccum"
+                                       value="false"
+                                    >
+                                    <label class="form-check-label">
+                                        Non
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-sm">
+                            <label class="small mb-1" >Certificat</label>
+                            <div class="checkbox">
+                                <div class="form-check" style="margin-right: 10px;">
+                                    <input class="form-check-input" type="radio"
+                                        formControlName="isCertificated"
+                                        value="true" checked
+                                    >
+                                    <label class="form-check-label">
+                                        Oui
+                                    </label>
+                                </div>
+                            <div class="form-check">
+                                    <input class="form-check-input" type="radio"
+                                        formControlName="isCertificated"
+                                        value="false"
+                                   >
+                                    <label class="form-check-label">
+                                        Non
+                                    </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm">
+                        <label class="small mb-1" >Chargement arrière</label>
+                        <div class="checkbox">
+                            <div class="form-check" style="margin-right: 10px;">
+                                <input class="form-check-input" type="radio" 
+                                    formControlName="isBackCharge"
+                                    value="true" checked
+                                >
+                                <label class="form-check-label" >
+                                    Oui
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" 
+                                    formControlName="isBackCharge"
+                                    value="false"
+                                >
+                                <label class="form-check-label" >
+                                    Non
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                    <!-- Début de la sixième ligne -->
+
+                <div class="row mt-3">
+                        <div class="col-sm">
+                            <label class="small mb-1" >Status</label>
+                            <div class="checkbox">
+                                <div class="form-check" style="margin-right: 10px;">
+                                    <input class="form-check-input" type="radio" formControlName="dispo"
+                                           id="exampleRadios1" value="true" checked
+                                           >
+                                    <label class="form-check-label" for="exampleRadios1">
+                                        Actif
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" formControlName="dispo"
+                                           id="exampleRadios2" value="false"
+                                           >
+                                    <label class="form-check-label" for="exampleRadios2">
+                                        Inactif
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <label class="small mb-1">Auto vireur</label>
+                            <div class="checkbox">
+                                <div class="form-check" style="margin-right: 10px;">
+                                    <input class="form-check-input" type="radio" formControlName="isAutoVireur"
+                                           value="true" checked
+                                           >
+                                    <label class="form-check-label" >
+                                        Oui
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" formControlName="isAutoVireur"
+                                           value="false"
+                                           >
+                                    <label class="form-check-label" >
+                                        Non
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            
+                        </div>
+                    </div>
+
+
+                    <div class="row my-10">
+                        <div class="col-sm mt-">
+                            <button style="width: 100%" 
+                            [disabled]="citerneForm.invalid" 
+                            (click)="open('add')" class="btn btn-primary">Valider</button>
+                        </div>
+
+                        <div class="col-sm">
+                            <button style="width: 100%"  class="btn btn-danger" (click)="citerneForm.reset()">Annuler</button>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="addTankModal" tabindex="-1" role="dialog" 
+    aria-labelledby="addTankModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h4 class="modal-title">Créer une nouvelle citerne</h4>
+                <button type="button" class="btn close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <span class="bg.light">Confirmer  la création de la nouvelle citerne</span>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" 
+                    (click)="onSubmit()">
+                    Enregistrer
+                </button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
+              </div>
+
+        </div>
+
+    </div>
+
+</div>

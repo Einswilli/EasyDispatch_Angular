@@ -1,0 +1,38 @@
+<div class="modal-header">
+    <h4 class="modal-title">Modifier le produit</h4>
+    <button type="button" class="btn close" aria-label="Close"
+            (click)="activeModal.dismiss('Cross click')">
+    </button>
+</div>
+<div class="modal-body">
+    <div [hidden]="submitted" style="width: 400px;"></div>
+    <div  [hidden]="!submitted"  class="alert alert-success mt-5">
+        <strong>SUCCES!</strong> Les informations sont correctement enregistees.
+    </div>
+    <form [formGroup]="createProductForm">
+        <div class="form-group">
+            <label class="small mb-1" for="designation">Designation</label>
+            <input formControlName="designation" class="form-control py-4" id="designation" type="text"
+                   placeholder="Entrer la designation"  />
+        </div>
+
+        <div class="form-group">
+            <label class="small mb-1" for="description">Description</label>
+            <input formControlName="description" class="form-control py-4" id="description"
+                   type="text" placeholder="Entrer la description"/>
+        </div>
+        <div class="row " style="width: 100%" >
+            <div class="form-group float-left d-flex align-items-center justify-content-between ">
+                <button (click)="updateProduit()" class="btn"
+                        style="background-color:#42a5f5; color: white;">Modifier</button>
+            </div>
+            <div class="float-right form-group d-flex align-items-center justify-content-between " >
+                <button style="margin-left: 100%" class="btn btn-danger" (click)="activeModal.dismiss('anuler')">
+                    Annuler
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+

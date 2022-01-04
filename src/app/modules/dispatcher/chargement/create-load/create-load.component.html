@@ -1,0 +1,102 @@
+
+<div style='margin: 2%; padding: 2%' class="card">
+
+    <div class="d-flex  justify-content-between p-10">
+        <div class="card-title">
+            <h3 class="card-label ">AJOUTER UN CHARGEMENT</h3>
+        </div>
+        <div class="card-toolbar">
+            <button type="button" class="btn btn-primary" (click)="displayList()">Liste des chargements</button>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-md-offset-0 col-md-12 ">
+            <div class="">
+                <!--                    add new client-->
+                <div class="container" >
+                    <div [hidden]="submitted" style="width: 400px;"></div>
+                    <div  [hidden]="!submitted"  class="alert alert-success mt-5">
+                        <strong>SUCCES!</strong> Les informations sont correctement enregistees.
+                    </div>
+                </div>
+
+                <form  [formGroup]="loadForm">
+
+
+                    <div class="row mt-3 mt-5">
+                        <div class="col-sm">
+                            <label for="commande">commande associée</label>
+                            <select id="commande" class="custom-select" formControlName="commande" class="form-control">
+                                <option> Commande associé </option>
+                                    <option *ngFor="let commande of commandeArray" [ngValue]="commande">
+                                        NUMERO: {{commande.reference}} | EXPEDITEUR : {{commande.clientExpediteur.clientName}}  |  DESTINATAIRE : {{commande.clientDestinataire.clientName}} </option>
+                            </select>
+                        </div>
+                        <div  class="col-sm">
+                            <label for="chauffeur">chauffeur associé</label>
+                            <select id="chauffeur" class="custom-select" formControlName="chauffeur" class="form-control">
+                                <option> Chauffeur associé </option>
+                            <option *ngFor="let chauffeur of chauffeurArray" [ngValue]="chauffeur">
+                                {{chauffeur.nomChauffeur}}  {{chauffeur.prenomChauffeur}}</option>
+                            </select>
+                        </div>
+                        <div class="col-sm">
+                            <label for="camion">camion affecté</label>
+                            <select id="camion" class="custom-select" formControlName="camion" class="form-control">
+                                <option> Camion associé</option>
+                                <option *ngFor="let camion of camionArray" [ngValue]="camion">
+                                    {{camion.matricule}} {{camion.marque}} | {{camion.modele}} </option>
+
+                            </select>
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="row mt-3 mt-5">
+                        <div class="col-sm">
+                            <label for="citerne">citerne associée</label>
+                            <select id="citerne" class="custom-select" formControlName="camion" class="form-control">
+                                <option> Citerne associé</option>
+                                <option *ngFor="let citerne of citerneArray" [ngValue]="citerne">
+                                    {{citerne.assetId}}</option>
+
+                            </select>
+                        </div>
+                        <div  class="col-sm">
+                            <label for="debDechar"> début déchargement prévu</label>
+                            <input id="debDechar" formControlName="dateHeureDebutDechargementEffective" class="form-control"
+                                   type="datetime-local" placeholder="Date et heure debut déchargement effectif" />
+                        </div>
+
+                        <div  class="col-sm">
+                            <label for="finDechar">fin déchargement prévu</label>
+                            <input id="finDechar" formControlName="dateHeureFinDechargementEffective" class="form-control"
+                                   type="datetime-local" placeholder="Date et heure fin déchargement
+                                        effectif" />
+                        </div>
+
+                    </div>
+
+
+                    <div class="row my-10">
+                        <div class="col-sm mt-">
+                            <button style="width: 100%"  (click)="onSubmit()" class="btn btn-primary">Valider</button>
+                        </div>
+
+                        <div class="col-sm">
+                            <button style="width: 100%"  class="btn btn-danger">Annuler</button>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

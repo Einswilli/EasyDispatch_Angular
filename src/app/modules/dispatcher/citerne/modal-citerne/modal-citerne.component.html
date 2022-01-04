@@ -1,0 +1,244 @@
+<div class="modal-header">
+    <h4 class="modal-title">Modifier la Citerne</h4>
+    <button type="button" class="btn close" aria-label="Close"
+            (click)="activeModal.dismiss('cross clicked... terminating modal.')">
+    </button>
+</div>
+<div class="modal-body">
+    <div class="row ">
+    <div class="col-md-offset-0 col-md-12">
+        <div class="">
+            <div class="container" >
+                <div [hidden]="submitted" style="width: 400px;"></div>
+                <div  [hidden]="!submitted"  class="alert alert-success mt-5">
+                    <strong>SUCCES!</strong> Les informations sont correctement enregistees.
+                </div>
+            </div>
+            <form  [formGroup]="createCiterneForm">
+
+                <div class="row mt-3 mt-5">
+                    <div class="col-sm">
+                        <label for="asset">Asset-ID</label>
+                        <input id="asset" formControlName="assetId" class="form-control "
+                               type="text" placeholder="Asset Id" />
+                    </div>
+                    
+                    <div  class="col-sm">
+                        <label for="descr">Description</label>
+                        <input id="descr" formControlName="description" class="form-control"
+                               type="tel" placeholder="Description" />
+                    </div>
+
+                    <div  class="col-sm">
+                        <label for="manu">Manufacture</label>
+                        <input id="manu" formControlName="manufacture" class="form-control "
+                               type="text" placeholder="Manufacture" />
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-sm">
+                        <label for="marque">Marque</label>
+                        <input id="marque" formControlName="marque" class="form-control "
+                               type="text" placeholder="Marque" />
+                    </div>
+                    <div class="col-sm">
+                        <label for="medele">Modèle</label>
+                        <input id="modele" formControlName="modele" class="form-control"
+                               type="number"
+                               placeholder="Modele" />
+                    </div>
+                    <div class="col-sm">
+                        <label for="mat">Matricule/N° plaque</label>
+                        <input id="mat" formControlName="matricule" class="form-control"
+                               type="text" placeholder="Matricule (Numéro de plaque)" />
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-sm">
+                        <label for="nbc">Nombre de compartiments</label>
+                        <input id="nbc" formControlName="nbreCompartiment" class="form-control "
+                               type="text" placeholder="Nbre de compartiment" />
+                    </div>
+                    <div class="col-sm">
+                        <label for="cp">capacité pied</label>
+                        <input id="cp" formControlName="capacitePied" class="form-control"
+                               type="number"
+                               placeholder="Capacité pied" />
+                    </div>
+                </div>
+
+
+                <div class="row mt-3">
+                    <div class="col-sm">
+                        <label for="anneFabrication">Année acquisition</label>
+                        <select id="anneFabrication" class="custom-select" formControlName="anneFabrication">
+                            [ngClass]="
+                            (createCiterneForm.get('anneFabrication').touched ||
+                            createCiterneForm.get('anneFabrication').dirty) &&
+                            createCiterneForm.get('anneFabrication').hasError('required')
+                                ? 'is-invalid'
+                                : '' ||
+                                ((createCiterneForm.get('anneFabrication').touched ||
+                                createCiterneForm.get('anneFabrication').dirty) &&
+                                    !createCiterneForm.get('anneFabrication').invalid)
+                                ? 'is-valid'
+                                : ''
+                            "
+                            <div class="invalid-feedback">
+                                {{
+                                    createCiterneForm.get("entretien").hasError("required")
+                                    ? "Choisissez l'Année"
+                                    : ""
+                                }}
+                            </div>
+                            <option value='' disabled>Année d'acquisition</option>
+                            <option *ngFor="let y of years" value="{{y}}">{{y}}</option>
+                        </select>
+
+                    </div>
+                    <div class="col-sm">
+                        <label for="poids">Poids</label>
+                        <input id="poids" formControlName="poids" class="form-control"
+                               type="number"
+                               placeholder="Poids" />
+                    </div>
+                    <div class="col-sm">
+                        <label for="DE">Dernier Entretien</label>
+                        <input id="DE" formControlName="entretien" class="form-control"
+                               type="date" placeholder="Dernier entretien" />
+                    </div>
+
+                </div>
+
+
+                <div class="row mt-3">
+                    <div class="col-sm">
+                        <label for="numS">Numero Série</label>
+                        <input id="numS" formControlName="serialNumber" class="form-control"
+                               type="text"
+                               placeholder="Numéro de serie" />
+                    </div>
+                    <div class="col-sm">
+                        <label class="small mb-1" style="font-weight: bold">Status</label>
+                        <div class="checkbox">
+                            <div class="form-check" style="margin-right: 10px;">
+                                <input class="form-check-input" type="radio" formControlName="dispo"
+                                       id="exampleRadios1" value="true" checked>
+                                <label class="form-check-label" for="exampleRadios1">
+                                    Actif
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" formControlName="dispo"
+                                       id="exampleRadios2" value="false">
+                                <label class="form-check-label" for="exampleRadios2">
+                                    Inactif
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <label class="small mb-1" style="font-weight: bold">Auto vireur</label>
+                        <div class="checkbox">
+                            <div class="form-check" style="margin-right: 10px;">
+                                <input class="form-check-input" type="radio" formControlName="isAutoVireur"
+                                       value="true" checked>
+                                <label class="form-check-label" >
+                                    Oui
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" formControlName="isAutoVireur"
+                                       value="false">
+                                <label class="form-check-label" >
+                                    Non
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row mt-3">
+                    <div class="col-sm">
+                        <label class="small mb-1" style="font-weight: bold">Vaccum</label>
+                        <div class="checkbox">
+                            <div class="form-check" style="margin-right: 10px;">
+                                <input class="form-check-input" type="radio" formControlName="isVaccum"
+                                       value="true" checked>
+                                <label class="form-check-label" >
+                                    Oui
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" formControlName="isVaccum"
+                                       value="false">
+                                <label class="form-check-label">
+                                    Non
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <label class="small mb-1" style="font-weight: bold">Certificat</label>
+                        <div class="checkbox">
+                            <div class="form-check" style="margin-right: 10px;">
+                                <input class="form-check-input" type="radio" formControlName="isCertificated"
+                                       value="true" checked>
+                                <label class="form-check-label">
+                                    Oui
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" formControlName="isCertificated"
+                                       value="false">
+                                <label class="form-check-label">
+                                    Non
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <label class="small mb-1" style="font-weight: bold">Chargement arrière</label>
+                        <div class="checkbox">
+                            <div class="form-check" style="margin-right: 10px;">
+                                <input class="form-check-input" type="radio" formControlName="isBackCharge"
+                                       value="true" checked>
+                                <label class="form-check-label" >
+                                    Oui
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" formControlName="isBackCharge"
+                                       value="false">
+                                <label class="form-check-label" >
+                                    Non
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <div class="row my-10">
+                    <div class="col-sm mt-">
+                        <button style="width: 100%"  (click)="updateCiterne()" class="btn btn-primary">Valider</button>
+                    </div>
+
+                    <div class="col-sm">
+                        <button style="width: 100%" (click)="activeModal.dismiss('modification anulée')" class="btn btn-danger">Annuler</button>
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+
+

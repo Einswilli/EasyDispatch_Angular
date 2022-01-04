@@ -1,0 +1,174 @@
+<div style="padding-bottom: 4%">
+    <div class="row">
+        <div style='width: 100%'>
+            <div class="">
+                <div class="panel-heading">
+                    <div>
+                        <div class=" align-items-center" style='text-align: center;margin-top: 3%'>
+                            <h4 class="title " style='width: 100%'>MODIFIER UN CLIENT <span></span></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body table-responsive">
+
+                    <div style="width:90%" class="container">
+                        <div [hidden]="!submitted" class="alert alert-success mt-5">
+                            <strong>SUCCES!</strong> Les informations sont correctement enregistees.
+                        </div>
+
+                        <form [formGroup]="createClientForm">
+
+
+                            <div class="row mt-3 mt-5">
+                                <div class="col-sm">
+                                    <label for="name">Nom du client</label>
+                                    <input id="name" formControlName="clientName" class="form-control " type="text" placeholder="Entrer le nom" [ngClass]="{'is-valid':createClientForm.get('clientName').valid,'is-invalid':(createClientForm.get('clientName').touched ||
+                                    createClientForm.get('clientName').dirty) && createClientForm.get('clientName').errors}" />
+                                    <div *ngIf="createClientForm.get('clientName').errors" class="invalid-feedback">
+                                        <div *ngIf="createClientForm.get('clientName').hasError('required')">
+                                            Vous devez remplir ce champ!
+                                        </div>
+                                        <div *ngIf="createClientForm.get('clientName').hasError('pattern')">
+                                            Ce champ ne doit contenir aucun chiffre !
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <label for="tel">Telephone</label>
+                                    <input id="tel" formControlName="clientPhoneNumber" class="form-control" type="tel" placeholder="Entrer le téléphone" [ngClass]="{'is-invalid':(createClientForm.get('clientPhoneNumber').touched ||createClientForm.get('clientPhoneNumber').dirty) && createClientForm.get('clientPhoneNumber').errors,'is-valid':createClientForm.get('clientPhoneNumber').valid}" />
+                                    <div *ngIf="createClientForm.get('clientPhoneNumber').errors" class="invalid-feedback">
+                                        <div *ngIf="createClientForm.get('clientPhoneNumber').hasError('required')">
+                                            Vous devez remplir ce champ!
+                                        </div>
+                                        <div *ngIf="createClientForm.get('clientPhoneNumber').hasError('min')">
+                                            La valeur de ce champ doit dépasser 0!
+                                        </div>
+                                        <div *ngIf="createClientForm.get('clientPhoneNumber').hasError('pattern')">
+                                            La valeur de ce champ doit être un nombre!
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row mt-3 mt-5">
+
+                                <div class="col-sm">
+                                    <label for="pays">Pays</label>
+                                    <input id="pays" formControlName="clientAdresseCountry" class="form-control " type="text" placeholder="Entrer le pays" [ngClass]="{'is-invalid':(createClientForm.get('clientAdresseCountry').touched ||createClientForm.get('clientAdresseCountry').dirty) && createClientForm.get('clientAdresseCountry').errors ,'is-valid':createClientForm.get('clientAdresseCountry').valid}" />
+                                    <div *ngIf="createClientForm.get('clientAdresseCountry').errors" class="invalid-feedback">
+                                        <div *ngIf="createClientForm.get('clientAdresseCountry').hasError('required')">
+                                            Vous devez remplir ce champ!
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <label for="ville">ville</label>
+                                    <input id="ville" formControlName="clientAdresseCity" class="form-control " type="text" placeholder="Entrer la ville" [ngClass]="{'is-invalid':(createClientForm.get('clientAdresseCity').touched ||createClientForm.get('clientAdresseCity').dirty) && createClientForm.get('clientAdresseCity').errors,'is-valid':createClientForm.get('clientAdresseCity').valid}"/>
+                                    <div *ngIf="createClientForm.get('clientAdresseCity').hasError('required')">
+                                        Vous devez remplir ce champ!
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+
+                                <div class="col-sm">
+                                    <label for="municipalite">N° Municipalité</label>
+                                    <input id="municipalite" formControlName="clientAdresseMunicipalNumber" class="form-control" type="number" placeholder="No de la municipalité" [ngClass]="{'is-invalid':(createClientForm.get('clientAdresseMunicipalNumber').touched ||createClientForm.get('clientAdresseMunicipalNumber').dirty) && createClientForm.get('clientAdresseMunicipalNumber').errors ,'is-valid':createClientForm.get('clientAdresseMunicipalNumber').valid}"/>
+                                    <div *ngIf="createClientForm.get('clientAdresseMunicipalNumber').errors" class="invalid-feedback">
+                                        <div *ngIf="createClientForm.get('clientAdresseMunicipalNumber').hasError('required')">
+                                            Vous devez remplir ce champ!
+                                        </div>
+                                        <div *ngIf="createClientForm.get('clientAdresseMunicipalNumber').hasError('min')">
+                                            La valeur de ce champ doit dépasser 0!
+                                        </div>
+                                        <div *ngIf="createClientForm.get('clientAdresseMunicipalNumber').hasError('pattern')">
+                                            La valeur de ce champ doit être un nombre!
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <label for="rue">Rue</label>
+                                    <input id="rue" formControlName="clientAdresseStreetName" class="form-control" type="text" placeholder="Entrer la rue" [ngClass]="{'is-invalid':(createClientForm.get('clientAdresseStreetName').touched ||createClientForm.get('clientAdresseStreetName').dirty) && createClientForm.get('clientAdresseStreetName').errors,'is-valid':createClientForm.get('clientAdresseStreetName').valid}"/>
+                                    <div *ngIf="createClientForm.get('clientAdresseStreetName').errors" class="invalid-feedback">
+                                        <div *ngIf="createClientForm.get('clientAdresseStreetName').hasError('required')">
+                                            Vous devez remplir ce champ!
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-sm">
+                                    <label for="addr">Adresse complete</label>
+                                    <input id="addr" formControlName="clientAdresseComplete" class="form-control" type="text" placeholder="Entrer l'adresse complète" [ngClass]="{'is-invalid':(createClientForm.get('clientAdresseComplete').touched ||createClientForm.get('clientAdresseComplete').dirty) && createClientForm.get('clientAdresseComplete').errors,'is-valid':createClientForm.get('clientAdresseComplete').valid}" />
+                                    <div *ngIf="createClientForm.get('clientAdresseComplete').errors" class="invalid-feedback">
+                                        <div *ngIf="createClientForm.get('clientAdresseComplete').hasError('required')">
+                                            Vous devez remplir ce champ!
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-sm">
+                                    <label for="email">Email</label>
+                                    <input id="email" formControlName="clientEmail" class="form-control" type="text" placeholder="Entrer l'email" [ngClass]="{'is-invalid':(createClientForm.get('clientEmail').touched ||createClientForm.get('clientEmail').dirty) && createClientForm.get('clientEmail').errors,'is-valid':createClientForm.get('clientEmail').valid}"/>
+                                    <div *ngIf="createClientForm.get('clientEmail').errors" class="invalid-feedback">
+                                        <div *ngIf="createClientForm.get('clientEmail').hasError('required')">
+                                            Vous devez remplir ce champ!
+                                        </div>
+                                        <div *ngIf="createClientForm.get('clientEmail').hasError('pattern')">
+                                            Vous devez entrer un E-mail valide!
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- <div class="row mt-3">
+                                <div class="col-sm">
+                                    <label for="exp">Expediteur ?</label>
+                                    <select id="exp" placeholder="Entrer le téléphone" class="custom-select"
+                                            formControlName="clientExpediteur">
+                                        <option class="form-control" value="">Choisissez l'expediteur</option>
+                                        <option class="form-control" value='OUI'>Oui</option>
+                                        <option class="form-control" value='NON'>Non</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm">
+                                    <label for="dest">Destinataire ?</label>
+                                    <select id="dest" class="custom-select"
+                                            formControlName="clientDestinataire">
+                                        <option class="form-control" value="">Choisissez le destinataire</option>
+                                        <option class="form-control" value='OUI'>Oui</option>
+                                        <option class="form-control" value='NON'>Non</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm">
+                                    <label for="pay">Payeur ?</label>
+                                    <select id="pay" class="custom-select"
+                                            formControlName="clientPayeur">
+                                        <option value="">Choisissez le payeur</option>
+                                        <option value='OUI'>Oui</option>
+                                        <option value='NON'>Non</option>
+                                    </select>
+                                </div>
+                            </div> -->
+
+                            <div class="row mt-3">
+                                <div class="col-sm">
+                                    <button style="width: 100%" (click)="udpateClient()" class="btn btn-danger" [disabled]="!createClientForm.valid">Modifier</button>
+                                </div>
+                                <div class="col-sm">
+                                    <button style="width: 100%" (click)="activeModal.dismiss('')" class="btn btn-primary">Annuler</button>
+                                </div>
+
+
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

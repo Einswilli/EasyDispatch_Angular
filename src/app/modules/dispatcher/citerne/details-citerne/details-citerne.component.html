@@ -1,0 +1,108 @@
+<div class="modal-header">
+    <h4 class="modal-title">Details la Citerne</h4>
+    <button type="button" class="btn close" aria-label="Close"
+            (click)="activeModal.dismiss('cross clicked... terminating modal.')">
+    </button>
+</div>
+<div class="modal-body">
+    <div class="row ">
+    <div class="col-md-offset-0 col-md-12">
+        <div class="">
+            <table class="table table-striped">
+                <tbody>
+                  <tr>
+                    <th scope="row">ID</th>
+                    <td> {{ this.citerne.id }} </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Asset ID</th>
+                    <td> {{ this.citerne.assetId}} </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Description</th>
+                    <td> {{ this.citerne.description }} </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Manufacture</th>
+                    <td> {{ this.citerne.manufacture }} </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Marque</th>
+                    <td> {{ this.citerne.marque }} </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Modèle</th>
+                    <td> {{ this.citerne.modele }} </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Matricule</th>
+                    <td> {{ this.citerne.matricule }} </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Nombre de compartiment</th>
+                    <td> {{ this.citerne.nbreCompartiment }} </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Numéro de série</th>
+                    <td> {{ this.citerne.serialNumber }} </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Capacité pied</th>
+                    <td> {{ this.citerne.capacitePied }} </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Année de fabrication </th>
+                    <td> {{ this.citerne.anneFabrication }} </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Poids</th>
+                    <td> {{ this.citerne.poids }} </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Puissance</th>
+                    <td> {{ this.citerne.puissance }} </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Date de la dernière entretien</th>
+                    <td> {{ this.citerne.dateEntretien }} </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Est vaccant</th>
+                    <td> {{ this.citerne.isVaccum?"Oui":"Non" }} </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Est certifié</th>
+                    <td> {{ this.citerne.isCertificated?"Oui":"Non" }} </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Chargement arrière</th>
+                    <td> {{ this.citerne.isBackCharge?"Oui":"Non" }} </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Disponnible</th>
+                    <td> {{ this.citerne.dispo?"Oui":"Non" }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Auto virrage</th>
+                    <td> {{ this.citerne.isAutoVireur?"Oui":"Non" }} </td>
+                  </tr>
+                </tbody>
+              </table>
+
+
+
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal"
+            style="width: 100%"
+            (click)="activeModal.dismiss('Oki')">
+                Ok
+            </button>
+        </div>
+        
+    </div>
+</div>
+</div>
+
+

@@ -1,0 +1,133 @@
+<div class="modal-header">
+    <h4 class="modal-title">Voici les Details</h4>
+    <button type="button" class="btn close" aria-label="Close"
+            (click)="activeModal.dismiss('Cross click')">
+    </button>
+</div>
+<div class="modal-body ">
+        <div class="row " >
+            <div class="col-md-7 mb-1  mt-1 ">
+               <h6 class=""> AssetId:</h6>
+            </div>
+            <div class="col-md-5 mb-1  mt-1">
+                <h6>{{this.camion.assetId}}</h6>
+             </div>
+        </div>
+        <div class="row bg-light">
+            <div class="col-md-7 mb-1 mt-1">
+              <h6 class="">Couleur:</h6>
+            </div>
+            <div class="col-md-5 mb-1 mt-1">
+                <h6>{{this.camion.couleur}} </h6>
+              </div>
+            
+        </div>
+        <div class="row" >
+            <div class="col-md-7 mb-1  mt-1">
+               <h6>Disponible:</h6>
+            </div>
+            <div class="col-md-5 mb-1  mt-1">
+                <h6>{{this.camion.disponible?"Oui":"Non"}}  </h6>
+             </div>
+        </div>
+        <div class="row bg-light">
+            <div class="col-md-7 mb-1  mt-1">
+               <h6> Puissance:</h6>
+            </div>
+            <div class="col-md-5 mb-1  mt-1">
+                <h6>{{this.camion.puissance}} </h6>
+             </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7 mb-1  mt-1">
+               <h6> Pret:</h6> 
+            </div>
+            <div class="col-md-5 mb-1  mt-1">
+                <h6>{{this.camion.pret?"Oui":"Non"}} </h6>
+             </div>
+        </div>
+        <div class="row bg-light">
+            <div class="col-md-7 mb-1  mt-1">
+               <h6> Marque:</h6>
+            </div>
+            <div class="col-md-5 mb-1  mt-1">
+                <h6>{{this.camion.marque}} </h6>
+             </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-md-7 mb-1  mt-1">
+               <h6> Num Série:</h6>
+            </div>
+            <div class="col-md-5 mb-1  mt-1">
+                <h6>{{this.camion.serialNumber}} </h6>
+             </div>
+        </div>
+        <div class="row bg-light">
+            <div class="col-md-7 mb-1  mt-1">
+               <h6> Poids:</h6>
+            </div>
+            <div class="col-md-5 mb-1  mt-1">
+                <h6>{{this.camion.poids}} </h6>
+             </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-md-7 mb-1  mt-1">
+               <h6> Matricule: </h6>
+            </div>    
+            <div class="col-md-5 mb-1  mt-1">
+                <h6>{{this.camion.matricule}}   </h6>
+             </div>     
+        </div>
+        <div class="row bg-light">
+            <div class="col-md-7 mb-1  mt-1">
+              <h6>Description:</h6>
+            </div>
+            <div class="col-md-5 mb-1  mt-1">
+                <h6> {{this.camion.description}}   </h6>
+              </div>       
+        </div>
+        <div class="row">
+            <div class="col-md-7 mb-1  mt-1">
+              <h6> Manufacture:</h6>
+            </div>   
+            <div class="col-md-5 mb-1  mt-1">
+                <h6> {{this.camion.manufacture}} </h6>
+              </div>    
+        </div>
+        <div class="row bg-light">
+            <div class="col-md-7 mb-1  mt-1">
+                <h6>Dernier Entretien:</h6>
+            </div>   
+            <div class="col-md-5 mb-1  mt-1">
+                <h6>{{this.camion.dateEntretien}}</h6>
+            </div>    
+        </div>
+        <div class="row">
+            <div class="col-md-7 mb-1  mt-1">
+                <h6>modele:</h6>
+            </div>   
+            <div class="col-md-5 mb-1  mt-1">
+                <h6>{{this.camion.model}}</h6>
+            </div>     
+        </div>
+        <div class="row bg-light">
+            <div class="col-md-7 mb-1">
+                <h6>Année_fac:</h6>
+            </div>  
+            <div class="col-md-5 mb-1">
+                <h6>{{this.camion.anneFabrication}}</h6>
+            </div>     
+        </div>
+
+
+</div>
+
+<div class="form-group d-flex align-items-center justify-content-between mt-4 mb-4 ml-11">
+    <button class="btn btn-danger" (click)="activeModal.dismiss('modification anulée')">
+    Fermer
+    </button>
+</div>
+
+

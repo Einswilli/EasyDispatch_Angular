@@ -1,0 +1,89 @@
+<div class="modal-header">
+    <h4 class="modal-title">Modifier le Chargement</h4>
+    <button type="button" class="btn close" aria-label="Close"
+            (click)="activeModal.dismiss('cross clicked... terminating modal.')">
+    </button>
+</div>
+<div class="modal-body">
+    <div class="row ">
+        <div class="col-md-offset-0 col-md-12">
+            <div class="">
+                <div class="container" >
+                    <div [hidden]="submitted" style="width: 400px;"></div>
+                    <div  [hidden]="!submitted"  class="alert alert-success mt-5">
+                        <strong>SUCCES!</strong> Les informations sont correctement enregistees.
+                    </div>
+                </div>
+                <form  [formGroup]="createChargementForm">
+
+
+                    <div class="row mt-3 mt-5">
+                        <div class="col-sm">
+                            <label for="commande">Commande associée</label>
+                            <select id="commande" class="custom-select" formControlName="commande" class="form-control">
+                                <option> Commande associé </option>
+                                <option *ngFor="let commande of commandeArray" [ngValue]="commande">
+                                    NUMERO: {{commande.reference}} | EXPEDITEUR : {{commande.clientExpediteur.clientName}}  |  DESTINATAIRE : {{commande.clientDestinataire.clientName}} </option>
+                            </select>
+                        </div>
+                        <div  class="col-sm">
+                            <label for="chauffeur">chauffeur associé</label>
+                            <select id="chauffeur" class="custom-select" formControlName="chauffeur" class="form-control">
+                                <option> Chauffeur associé </option>
+                                <option *ngFor="let chauffeur of chauffeurArray" [ngValue]="chauffeur">
+                                    {{chauffeur.nomChauffeur}}  {{chauffeur.prenomChauffeur}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mt-3 mt-5">
+                        <div class="col-sm">
+                            <label for="camion">Camion associé</label>
+                            <select id="camion" class="custom-select" formControlName="camion" class="form-control">
+                                <option> Camion associé</option>
+                                <option *ngFor="let camion of camionArray" [ngValue]="camion">
+                                    {{camion.matricule}} {{camion.marque}} | {{camion.modele}} </option>
+
+                            </select>
+                        </div>
+                        <div class="col-sm">
+                            <label for="citerne">Citerne associée</label>
+                            <select id="citerne" class="custom-select" formControlName="citerne" class="form-control">
+                                <option> Citerne associé</option>
+                                <option *ngFor="let citerne of citerneArray" [ngValue]="citerne">
+                                    {{citerne.matricule}}</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div style="margin-top: 5%">
+                        <label for="debut">Date et heure debut déchargement
+                            effectif</label>
+                        <input formControlName="dateHeureDebutDechargementEffective" class="form-control"
+                              id="debut" type="datetime-local" placeholder="Date et heure debut déchargement effectif" />
+                    </div>
+
+                    <div style="margin-top: 5%">
+                        <label for="fin">Date et heure fin déchargement
+                            effectif</label>
+                        <input formControlName="dateHeureFinDechargementEffective" class="form-control"
+                              id="fin" type="datetime-local" placeholder="Date et heure fin déchargement
+                                    effectif" />
+                    </div>
+                    <div class="row my-10">
+                        <div class="col-sm mt-">
+                            <button style="width: 100%" (click)="updtateChargement()"  class="btn btn-primary">Valider</button>
+                        </div>
+
+                        <div class="col-sm">
+                            <button style="width: 100%" (click)="activeModal.dismiss('modification anulée')" class="btn btn-danger">Annuler</button>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+

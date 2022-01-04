@@ -1,0 +1,145 @@
+<div class="">
+    <div class=" align-items-center" style='text-align: center;margin-top: 3%'>
+        <h4   class="title " style='width: 100%'>MODIFIER COMMANDE</h4>
+    </div>
+    <div class="modal-body">
+        <div [hidden]="submitted" style="width: 400px;"></div>
+        <div  [hidden]="!submitted"  class="alert alert-success mt-5">
+            <strong>SUCCES!</strong> Les informations sont correctement enregistees.
+        </div>
+        <form [formGroup]="createCommandeForm">
+            <ng-container *ngIf="panelNum == 1">
+                <div class="form-group">
+                    <label class="small mb-1" for="reference" >Réference</label>
+                    <input (keyup)='isValid()' formControlName="reference" class="form-control" id="reference"
+                           type="number" placeholder=""/>
+                </div>
+                <div class="form-group">
+                    <label class="small mb-1" for="destinateur">Client Destinateur</label>
+                    <select class="custom-select" formControlName="destinateur"
+                            id="destinateur">
+                        <option *ngFor="let client of clientArrayDest" [ngValue]="client">
+                            {{client.clientName}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="small mb-1" for="produit">Produit</label>
+                    <select class="custom-select" formControlName="produit" id="produit">
+                        <option *ngFor = "let product of productArray" [ngValue]="product">{{product.designation}}</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button type="button" class="btn btn-primary float-right" (click)="next()">Suivant</button>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="panelNum == 2">
+                <div class="form-group">
+                    <label class="small mb-1" for="qte_normal_expedie">Quantite Normal
+                        Expedie</label>
+                    <input formControlName="qte_normal_expedie" class="form-control"
+                           id="qte_normal_expedie" type="number" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label class="small mb-1" for="qte_degel_expedie">Quantite De Gel
+                        Expedie</label>
+                    <input formControlName="qte_degel_expedie" class="form-control"
+                           id="qte_degel_expedie" type="number" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label class="small mb-1" for="temps_chargement_prevu">Temps Chargement
+                        Prévu</label>
+                    <input formControlName="temps_chargement_prevu" class="form-control"
+                           id="temps_chargement_prevu" type="datetime-local" placeholder="" />
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button type="button" class="btn btn-primary float-right"  (click)="next()">Suivant</button>
+                        <button type="button" class="btn btn-secondary float-right"  (click)="prev()">Précendent</button>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="panelNum == 3">
+                <div class="form-group">
+                    <label class="small mb-1" for="distance_expediteur_destinataire">Distance
+                        Expediteur Destinataire</label>
+                    <input formControlName="distance_expediteur_destinataire"
+                           class="form-control" id="distance_expediteur_destinataire" type="number"
+                           placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label class="small mb-1" for="prix_chauffeur">Prix Chauffeur</label>
+                    <input formControlName="prix_chauffeur" class="form-control"
+                           id="prix_chauffeur" type="number" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label class="small mb-1" for="prix_voiturier">Prix Voiturier</label>
+                    <input formControlName="prix_voiturier" class="form-control"
+                           id="prix_voiturier" type="number" placeholder="" />
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button type="button" class="btn btn-primary float-right"  (click)="next()">Suivant</button>
+                        <button type="button" class="btn btn-secondary float-right"  (click)="prev()">Précendent</button>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="panelNum == 4">
+                <div class="form-group">
+                    <label class="small mb-1" for="date_chargement_prevu">Date Chargement
+                        Prévu</label>
+                    <input formControlName="date_chargement_prevu" class="form-control"
+                           id="date_chargement_prevu" type="datetime-local" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label class="small mb-1" for="date_dechargement_prevu">Date Déchargement
+                        Prévu</label>
+                    <input formControlName="date_dechargement_prevu" class="form-control"
+                           id="date_dechargement_prevu" type="datetime-local" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label class="small mb-1" for="heure_chargement_prevu">Heure Chargement
+                        Prévu</label>
+                    <input formControlName="heure_chargement_prevu" class="form-control"
+                           id="heure_chargement_prevu" type="datetime-local" placeholder="" />
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button type="button" class="btn btn-primary float-right"  (click)="next()">Suivant</button>
+                        <button type="button" class="btn btn-secondary float-right"  (click)="prev()">Précendent</button>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="panelNum == 5">
+                <div class="form-group">
+                    <label class="small mb-1" for="heure_dechargement_prevu">Heure Déchargement
+                        Prévu</label>
+                    <input formControlName="heure_dechargement_prevu" class="form-control"
+                           id="heure_dechargement_prevu" type="datetime-local" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label class="small mb-1" for="type_silo_chargement">Type Silo Chargement</label>
+                    <select class="custom-select" formControlName="type_silo_chargement" id="type_silo_chargement">
+                        <option *ngFor = "let type_silo of type_silo" [ngValue]="type_silo">{{type_silo.libelle_type_silo}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="small mb-1" for="type_silo_dechargement">Type Silo Déchargement</label>
+                    <select class="custom-select" formControlName="type_silo_dechargement" id="type_silo_dechargement">
+                        <option *ngFor = "let type_silo of type_silo" [ngValue]="type_silo">{{type_silo.libelle_type_silo}}</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button type="button" class="btn btn-success float-right" (click)="updateCommande()" [disabled]="!createCommandeForm.valid"
+                                style=" color: white;">valider</button>
+                        <button type="button" class="btn btn-secondary float-right"  (click)="prev()">précédent</button>
+                    </div>
+                </div>
+            </ng-container>
+        </form>
+    </div>
+</div>
+
+

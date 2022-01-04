@@ -1,0 +1,134 @@
+
+<div class="modal-header">
+    <h4 class="modal-title">Voici les Details</h4>
+    <button type="button" class="btn close" aria-label="Close"
+            (click)="activeModal.dismiss('Cross click')">
+    </button>
+</div>
+<div class="modal-body ">
+   <div class="row">
+      <div class="col-md-3">
+         <img src="../../../../../assets/media/users/100_3.jpg" class="img-fluid rounded" style="height: 100px; "/>
+      </div>
+      <div class="col-md-9">
+        <div class="row bg-light" >
+            <div class="col-md-7 mb-1 mt-1">
+               <h6>Nom:</h6>
+            </div>
+            <div class="col-md-5 mb-1 mt-1">
+               <h6>{{this.chauffeur.nomChauffeur}}</h6>
+            </div>
+         </div>
+         <div class="row ">
+            <div class="col-md-7 mb-1 mt-1">
+              <h6> Prenom:</h6>
+            </div>
+            <div class="col-md-5 mb-1 mt-1">
+               <h6>{{this.chauffeur.prenomChauffeur}} </h6>
+             </div>   
+        </div>
+        <div class="row bg-light">
+            <div class="col-md-7 mb-1 mt-1">
+               <h6>date_embauche:</h6>
+            </div>
+            <div class="col-md-5 mb-1 mb-1">
+               <h6>{{this.chauffeur.date_embauche}}</h6>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-md-7 mb-3">
+               <h6> date_depart:</h6>
+            </div>
+            <div class="col-md-5 mb-3">
+               <h6>{{this.chauffeur.date_depart}} </h6>
+            </div>
+         </div>
+      </div>
+      
+   </div>
+         <div class="row bg-light">
+            <div class="col-md-8 mb-3">
+               <h6>Statut:</h6>
+            </div>
+            <div class="col-md-4 mb-3">
+               <h6>{{this.chauffeur.statut}}</h6>
+            </div>
+        </div>
+        <div class="row">
+         <div class="col-md-8 mb-3">
+            <h6>Contact</h6>
+         </div>
+         <div class="col-md-4 mb-3">
+            <h6>{{this.chauffeur.contact}}</h6>
+         </div>
+     </div>
+        
+
+        <div class="row bg-light" >
+            <div class="col-md-8 mb-3">
+               <h6>Lundi:</h6>
+            </div>
+            <div class="col-md-4 mb-3">
+               <h6>{{this.chauffeur.jour[0]?"Oui":"Non"}} </h6>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-8 mb-3">
+                <h6>Mardi:</h6>
+             </div>
+             <div class="col-md-4 mb-3">
+               <h6>{{this.chauffeur.jour[1]?"Oui":"Non"}}</h6>
+            </div>
+         </div>
+         <div class="row bg-light">
+             <div class="col-md-8 mb-3">
+                <h6>Mercredi</h6>
+             </div>
+             <div class="col-md-4 mb-3">
+               <h6>{{this.chauffeur.jour[2]?"Oui":"Non"}} </h6>
+            </div>
+         </div>
+         <div class="row">
+             <div class="col-md-8 mb-3">
+                <h6>Jeudi:</h6>
+             </div>
+             <div class="col-md-4 mb-3">
+               <h6>{{this.chauffeur.jour[3]?"Oui":"Non"}}</h6>
+            </div>
+         </div>
+          <div class="row bg-light" >   
+             <div class="col-md-8 mb-3">
+                <h6>Vendredi:</h6>
+             </div>
+             <div class="col-md-4 mb-3">
+               <h6>{{this.chauffeur.jour[4]?"Oui":"Non"}} </h6>
+            </div>
+         </div>
+         <div class="row">
+             <div class="col-md-8 mb-3">
+                <h6>Samedi:</h6>
+             </div>
+             <div class="col-md-4 mb-3">
+               <h6>{{this.chauffeur.jour[5]?"Oui":"Non"}} </h6>
+            </div>
+         </div>
+         <div class="row bg-light">
+             <div class="col-md-8 mb-3">
+                <h6>Dimanche:</h6>
+             </div>
+             <div class="col-md-4 mb-3">
+               <h6>{{this.chauffeur.jour[6]?"Oui":"Non"}}</h6>
+            </div>
+         </div>
+    
+    
+   
+ </div>
+
+<div class="form-group d-flex align-items-center justify-content-between mt-4 mb-4 ml-11">
+    <button class="btn btn-danger" (click)="activeModal.dismiss('modification anulée')">
+    Fermer
+    </button>
+</div>
+
+

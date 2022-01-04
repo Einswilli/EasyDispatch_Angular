@@ -1,0 +1,267 @@
+<div class="modal-header">
+    <h4 class="modal-title">Modifier Chauffeur</h4>
+    <button type="button" class="btn close" aria-label="Close"
+            (click)="activeModal.dismiss('Cross click')">
+    </button>
+</div>
+<div class="modal-body">
+    <div [hidden]="submitted" style="width: 400px;"></div>
+    <div  [hidden]="!submitted"  class="alert alert-success mt-5">
+        <strong>SUCCES!</strong> Le chauffeur a bien été enrégistré
+    </div>
+    <form [formGroup]="createChauffeurForm">
+    <div class=" form-group  row">
+        <div class="form-group col-sm">
+            <label for="nomChauffeur"> Nom chauffeur</label>
+            <input id="nomChauffeur" formControlName="nomChauffeur" class="form-control "
+                   type="text" placeholder="Nom chauffeur"
+                   [ngClass]="
+          (createChauffeurForm.get('nomChauffeur').touched ||
+            createChauffeurForm.get('nomChauffeur').dirty) &&
+          createChauffeurForm.get('nomChauffeur').hasError('required')
+            ? 'is-invalid'
+            : '' || createChauffeurForm.get('nomChauffeur').hasError('minlength')
+            ? 'is-invalid'
+            : '' ||
+              ((createChauffeurForm.get('nomChauffeur').touched ||
+                createChauffeurForm.get('nomChauffeur').dirty) &&
+                !createChauffeurForm.get('nomChauffeur').invalid)
+            ? 'is-valid'
+            : ''
+        " />
+        <div class="invalid-feedback">
+          {{
+            createChauffeurForm.get("nomChauffeur").hasError("required")
+              ? " Veuillez entrer la manufacture"
+              : ""
+          }}
+          {{
+            createChauffeurForm.get("nomChauffeur").hasError("minlength")
+              ? "3 lettres au minimum"
+              : ""
+          }}
+        </div>
+                   
+        </div>
+        <div  class="form-group col-sm">
+            <label for="prenomChauffeur"> prénom chauffeur</label>
+            <input id="prenomChauffeur" formControlName="prenomChauffeur" class="form-control"
+                   type="text" placeholder="Prénom chauffeur"    [ngClass]="
+                   (createChauffeurForm.get('prenomChauffeur').touched ||
+                     createChauffeurForm.get('prenomChauffeur').dirty) &&
+                   createChauffeurForm.get('prenomChauffeur').hasError('required')
+                     ? 'is-invalid'
+                     : '' || createChauffeurForm.get('prenomChauffeur').hasError('minlength')
+                     ? 'is-invalid'
+                     : '' ||
+                       ((createChauffeurForm.get('prenomChauffeur').touched ||
+                         createChauffeurForm.get('prenomChauffeur').dirty) &&
+                         !createChauffeurForm.get('prenomChauffeur').invalid)
+                     ? 'is-valid'
+                     : ''
+                 " />
+                 <div class="invalid-feedback">
+                  {{
+                    createChauffeurForm.get("prenomChauffeur").hasError("required")
+                      ? " Veuillez entrer la manufacture"
+                      : ""
+                  }}
+                  {{
+                    createChauffeurForm.get("prenomChauffeur").hasError("minlength")
+                      ? "3 lettres au minimum"
+                      : ""
+                  }}
+                </div>
+        </div>
+    </div>
+    <div class=" form-group row mt-1">
+        <div class="form-group col-sm">
+            <label for="date_embauche"> date embauche</label>
+            <input id="date_embauche" formControlName="date_embauche" class="form-control "
+                   type="date" placeholder="Date embauche"  [ngClass]="
+                   (createChauffeurForm.get('date_embauche').touched ||
+                     createChauffeurForm.get('date_embauche').dirty) &&
+                   createChauffeurForm.get('date_embauche').hasError('required')
+                     ? 'is-invalid'
+                     : '' || createChauffeurForm.get('date_embauche').hasError('minlength')
+                     ? 'is-invalid'
+                     : '' ||
+                       ((createChauffeurForm.get('date_embauche').touched ||
+                         createChauffeurForm.get('date_embauche').dirty) &&
+                         !createChauffeurForm.get('date_embauche').invalid)
+                     ? 'is-valid'
+                     : ''
+                 "/>
+                 <div class="invalid-feedback">
+                  {{
+                    createChauffeurForm.get("date_embauche").hasError("required")
+                      ? "Choisissez le statut"
+                      : ""
+                  }}
+                  {{
+                    createChauffeurForm.get("date_embauche").hasError("minlength")
+                      ? ""
+                      : ""
+                  }}
+                </div>
+        </div>
+        
+        <div  class="form-group col-sm">
+                          <label for="date_depart"> date départ</label>
+                          <input id="date_depart" formControlName="date_depart" class="form-control"
+                                 type="date" placeholder="Date départ" min="01-01-2020"
+                                 [ngClass]="
+                                 (createChauffeurForm.get('date_depart').touched ||
+                                   createChauffeurForm.get('date_depart').dirty) &&
+                                 createChauffeurForm.get('date_depart').hasError('required')
+                                   ? 'is-invalid'
+                                   : '' || createChauffeurForm.get('date_depart').hasError('minlength')
+                                   ? 'is-invalid'
+                                   : '' ||
+                                     ((createChauffeurForm.get('date_depart').touched ||
+                                       createChauffeurForm.get('date_depart').dirty) &&
+                                       !createChauffeurForm.get('date_depart').invalid)
+                                   ? 'is-valid'
+                                   : ''
+                               "/>
+                               <div class="invalid-feedback">
+                                {{
+                                  createChauffeurForm.get("date_depart").hasError("required")
+                                    ? "Choisissez le statut"
+                                    : ""
+                                }}
+                                {{
+                                  createChauffeurForm.get("date_depart").hasError("minlength")
+                                    ? ""
+                                    : ""
+                                }}
+                              </div>
+        </div>
+    </div>
+    <div class=" form-group row mt-1">
+        <div class="form-group">
+            <label for="statut"> statut chauffeur</label>
+            <select class="custom-select" formControlName="statut" id="statut"
+            [ngClass]="
+                   (createChauffeurForm.get('statut').touched ||
+                     createChauffeurForm.get('statut').dirty) &&
+                   createChauffeurForm.get('statut').hasError('required')
+                     ? 'is-invalid'
+                     : '' || createChauffeurForm.get('statut').hasError('minlength')
+                     ? 'is-invalid'
+                     : '' ||
+                       ((createChauffeurForm.get('statut').touched ||
+                         createChauffeurForm.get('statut').dirty) &&
+                         !createChauffeurForm.get('statut').invalid)
+                     ? 'is-valid'
+                     : ''
+                 ">
+                <option disabled> {{this.chauffeur.statut}}</option>
+             
+                <option *ngFor="let statut of statuts" [ngValue]="statut.statut">{{statut.statut}}
+                </option>
+            </select>
+            <div class="invalid-feedback">
+              {{
+                createChauffeurForm.get("statut").hasError("required")
+                  ? "Choisissez le statut"
+                  : ""
+              }}
+            
+            </div>
+        </div>
+        <div class="form-group col-sm">
+          <label for="contact"> Nom chauffeur</label>
+          <input id="contact" formControlName="contact" class="form-control "
+                 type="number" placeholder="Contact du chauffeur"
+                 [ngClass]="
+        (createChauffeurForm.get('contact').touched ||
+          createChauffeurForm.get('contact').dirty) &&
+        createChauffeurForm.get('contact').hasError('required')
+          ? 'is-invalid'
+          : '' || createChauffeurForm.get('contact').hasError('minlength')
+          ? 'is-invalid'
+          : '' ||
+            ((createChauffeurForm.get('contact').touched ||
+              createChauffeurForm.get('contact').dirty) &&
+              !createChauffeurForm.get('contact').invalid)
+          ? 'is-valid'
+          : ''
+      " />
+      <div class="invalid-feedback">
+        {{
+          createChauffeurForm.get("contact").hasError("required")
+            ? " Veuillez entrer le numero "
+            : ""
+        }}
+  
+      </div>
+                 
+      </div>
+    </div>
+      
+                  <label> Disponibilité</label>
+                <div class=" form-group row mt-1">
+                   
+                    <div class=" form-group col-sm">
+                        <mat-slide-toggle type="checkbox" name="lundi" formControlName="lundi"
+                        value="true"  >
+                         Lundi
+                        </mat-slide-toggle>
+                    </div>
+    
+                    <div class=" form-group col-sm">
+                        <mat-slide-toggle type="checkbox" name="mardi" formControlName="mardi"
+                        value="true"  >
+                         Mardi
+                        </mat-slide-toggle>
+                    </div>
+                    <div class=" form-group col-sm">
+                        <mat-slide-toggle type="checkbox" name="mercredi" formControlName="mercredi"
+                        value="true"  >
+                         Mercredi
+                        </mat-slide-toggle>
+                    </div>
+                    <div class=" form-group col-sm">
+                        <mat-slide-toggle type="checkbox" name="jeudi" formControlName="jeudi"
+                        value="true"  >
+                         Jeudi
+                        </mat-slide-toggle>
+                    </div>
+                </div>
+
+                  <div class=" form-group row">
+                    <div class=" form-group col-sm">
+                        <mat-slide-toggle type="checkbox" name="vendredi" formControlName="vendredi"
+                        value="true"  >
+                         Vendredi
+                        </mat-slide-toggle>
+                    </div>
+                    <div class=" form-group col-sm">
+                        <mat-slide-toggle type="checkbox" name="samedi" formControlName="samedi"
+                        value="true"  >
+                         Samedi
+                        </mat-slide-toggle>
+                    </div>   
+                    <div class=" form-group col-sm">
+                        <mat-slide-toggle type="checkbox" name="dimanche" formControlName="dimanche"
+                        value="true"  >
+                         Dimanche
+                        </mat-slide-toggle>
+                    </div>
+                    <div class=" form-group col-sm">               
+                     </div>
+                </div>
+
+       
+            <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+                <button (click)="updateChauffeur()" class="btn btn-primary" (click)="activeModal.dismiss('')"
+                       >Modifier</button>
+                <button class="btn btn-danger " (click)="activeModal.dismiss('anuler')">
+                    Annuler
+                </button>
+            </div>
+        
+    </form>
+</div>
+

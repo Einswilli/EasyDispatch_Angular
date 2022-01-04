@@ -1,0 +1,86 @@
+<div class="card card-custom bg-gray-100 card-stretch gutter-b">
+  <!-- Header -->
+
+  <!-- Body -->
+  <div class="card-body p-0 position-relative overflow-hidden">
+    <!--begin::Chart-->
+    <div
+      id="kt_mixed_widget_1_chart"
+      class="card-rounded-bottom "
+      [style.height]="'100px'"
+    >
+
+    </div>
+    <!--end::Chart-->
+    <!--begin::Stats-->
+    <div class="card-spacer mt-n25">
+      <!--begin::Row-->
+      <div class="row m-0">
+        <div class="col bg-light-warning px-6 py-8 rounded-xl mr-7 mb-7" (click)="displayCommads()" style="cursor: pointer" >
+          <span
+            [inlineSVG]="'./assets/media/svg/icons/Shopping/Cart3.svg'"
+            class="svg-icon svg-icon-3x svg-icon-warning d-block my-2"
+          ></span>
+          <span  class="text-warning font-weight-bold font-size-h6">
+            Commandes
+          </span>
+        </div>
+        <div class="col bg-light-primary px-6 py-8 rounded-xl mb-7" (click)="displayClients()" style="cursor: pointer" >
+          <span
+            [inlineSVG]="'./assets/media/svg/icons/Communication/Add-user.svg'"
+            class="svg-icon svg-icon-3x svg-icon-primary d-block my-2"
+          ></span>
+          <span  class="text-primary font-weight-bold font-size-h6 mt-2">
+            Clients
+          </span>
+        </div>
+      </div>
+      <!--end::Row-->
+      <!--begin::Row-->
+      <div class="row m-0">
+        <div class="col bg-light-warning px-6 py-8 rounded-xl mr-7 mb-7" (click)="displayProduits()" style="cursor: pointer" >
+          <span
+              [inlineSVG]="'./assets/media/svg/icons/Layout/Layout-4-blocks.svg'"
+            class="svg-icon svg-icon-3x svg-icon-warning d-block my-2"
+          ></span>
+          <span  class="text-warning font-weight-bold font-size-h6">
+            Produits
+          </span>
+        </div>
+        <div class="col bg-light-primary px-6 py-8 rounded-xl mb-7" (click)="displayUtilisateurs()" style="cursor: pointer" >
+          <span
+                  [inlineSVG]="'./assets/media/svg/icons/Communication/Add-user.svg'"
+                  class="svg-icon svg-icon-3x svg-icon-primary d-block my-2"
+          ></span>
+          <span  class="text-primary font-weight-bold font-size-h6 mt-2">
+            Utilisateurs
+          </span>
+        </div>
+      </div>
+      <!--end::Row-->
+      <!--begin::Row-->
+      <div class="row m-0">
+        <div class="col bg-light-warning px-6 py-8 rounded-xl mr-7 mb-7">
+          <span
+            [inlineSVG]="'./assets/media/svg/icons/Media/Equalizer.svg'"
+            class="svg-icon svg-icon-3x svg-icon-warning d-block my-2"
+          ></span>
+          <a href="#" class="text-warning font-weight-bold font-size-h6">
+            Analytics
+          </a>
+        </div>
+        <div class="col bg-light-primary px-6 py-8 rounded-xl mb-7" (click)="displayChauffeurs()" style="cursor: pointer" >
+          <span
+                  [inlineSVG]="'./assets/media/svg/icons/Home/Building.svg'"
+                  class="svg-icon svg-icon-3x svg-icon-primary d-block my-2"
+          ></span>
+          <span class="text-primary font-weight-bold font-size-h6 mt-2">
+            Chauffeurs
+          </span>
+        </div>
+      </div>
+      <!--end::Row-->
+    </div>
+    <!--end::Stats-->
+  </div>
+</div>

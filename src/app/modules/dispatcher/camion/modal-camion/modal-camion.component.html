@@ -1,0 +1,460 @@
+
+<div class="modal-header">
+  <h4 class="modal-title">Modifier un camion</h4>
+  <button type="button" class="btn close" aria-label="Close"
+          (click)="activeModal.dismiss('Cross click')">
+  </button>
+</div>
+<div class="modal-body">
+  <div [hidden]="submitted" style="width: 400px;"></div>
+  <div  [hidden]="!submitted"  class="alert alert-success mt-5">
+      <strong>SUCCES!</strong> Les informations sont correctement enregistees.
+  </div>
+  <form [formGroup]="createCamionForm">
+    <div class="row mt-3 mt-1">
+      <div class="col-sm">
+          <label for="assetId"> Asset ID</label>
+          <input id="assetId"  [ngClass]="
+          (createCamionForm.get('assetId').touched ||
+            createCamionForm.get('assetId').dirty) &&
+          createCamionForm.get('assetId').hasError('required')
+            ? 'is-invalid'
+            : '' || createCamionForm.get('assetId').hasError('minlength')
+            ? 'is-invalid'
+            : '' ||
+              ((createCamionForm.get('assetId').touched ||
+                createCamionForm.get('assetId').dirty) &&
+                !createCamionForm.get('assetId').invalid)
+            ? 'is-valid'
+            : ''
+        " formControlName="assetId" class="form-control "
+                 type="text" placeholder="Asset Id" />
+                 <div class="invalid-feedback">
+                  {{
+                    createCamionForm.get("assetId").hasError("required")
+                      ? "Veuillez entrer assetId"
+                      : ""
+                  }}
+                  {{
+                    createCamionForm.get("assetId").hasError("minlength")
+                      ? "3 caractères minimum"
+                      : ""
+                  }}
+                </div>
+      </div>
+      
+      <div  class="col-sm">
+          <label for="description">description</label>
+          <input id="description" [ngClass]="
+          (createCamionForm.get('description').touched ||
+            createCamionForm.get('description').dirty) &&
+          createCamionForm.get('description').hasError('required')
+            ? 'is-invalid'
+            : '' || createCamionForm.get('description').hasError('minlength')
+            ? 'is-invalid'
+            : '' ||
+              ((createCamionForm.get('description').touched ||
+                createCamionForm.get('description').dirty) &&
+                !createCamionForm.get('description').invalid)
+            ? 'is-valid'
+            : ''
+        "
+          formControlName="description" class="form-control"
+                 type="text" placeholder="Description" />
+                 <div class="invalid-feedback">
+                  {{
+                    createCamionForm.get("description").hasError("required")
+                      ? "Veuillez entrer la description"
+                      : ""
+                  }}
+                  {{
+                    createCamionForm.get("description").hasError("minlength")
+                      ? "1 mot au minimum"
+                      : ""
+                  }}
+                </div>
+      </div>
+
+      <div  class="col-sm">
+          <label for="manufacture">Manufacture</label>
+          <input id="manufacture" [ngClass]="
+          (createCamionForm.get('manufacture').touched ||
+            createCamionForm.get('manufacture').dirty) &&
+          createCamionForm.get('manufacture').hasError('required')
+            ? 'is-invalid'
+            : '' || createCamionForm.get('manufacture').hasError('minlength')
+            ? 'is-invalid'
+            : '' ||
+              ((createCamionForm.get('manufacture').touched ||
+                createCamionForm.get('manufacture').dirty) &&
+                !createCamionForm.get('manufacture').invalid)
+            ? 'is-valid'
+            : ''
+        "
+          formControlName="manufacture" class="form-control "
+                 type="text" placeholder="Manufacture" />
+                 <div class="invalid-feedback">
+                  {{
+                    createCamionForm.get("manufacture").hasError("required")
+                      ? " Veuillez entrer la manufacture"
+                      : ""
+                  }}
+                  {{
+                    createCamionForm.get("manufacture").hasError("minlength")
+                      ? "3 lettres au minimum"
+                      : ""
+                  }}
+                </div>
+      </div>
+  </div>
+  <div class="row mt-3 mt-5">
+    <div class="col-sm">
+        <label for="model">Modeles</label>
+        <input id="model" [ngClass]="
+        (createCamionForm.get('model').touched ||
+          createCamionForm.get('model').dirty) &&
+        createCamionForm.get('model').hasError('required')
+          ? 'is-invalid'
+          : '' || createCamionForm.get('model').hasError('minlength')
+          ? 'is-invalid'
+          : '' ||
+            ((createCamionForm.get('model').touched ||
+              createCamionForm.get('model').dirty) &&
+              !createCamionForm.get('model').invalid)
+          ? 'is-valid'
+          : ''
+      " formControlName="model" class="form-control "
+               type="text" placeholder="Modele" />
+               <div class="invalid-feedback">
+                {{
+                  createCamionForm.get("model").hasError("required")
+                    ? "Veuillez entrer le modeles"
+                    : ""
+                }}
+                {{
+                  createCamionForm.get("model").hasError("minlength")
+                    ? "3 caractères minimum"
+                    : ""
+                }}
+              </div>
+    </div>
+    
+    <div  class="col-sm">
+        <label for="marque">Marque</label>
+        <input id="marque" [ngClass]="
+        (createCamionForm.get('marque').touched ||
+          createCamionForm.get('marque').dirty) &&
+        createCamionForm.get('marque').hasError('required')
+          ? 'is-invalid'
+          : '' || createCamionForm.get('marque').hasError('minlength')
+          ? 'is-invalid'
+          : '' ||
+            ((createCamionForm.get('marque').touched ||
+              createCamionForm.get('marque').dirty) &&
+              !createCamionForm.get('marque').invalid)
+          ? 'is-valid'
+          : ''
+      "
+        formControlName="marque" class="form-control"
+               type="text" placeholder="Marque" />
+               <div class="invalid-feedback">
+                {{
+                  createCamionForm.get("marque").hasError("required")
+                    ? "Veuillez entrer la marque"
+                    : ""
+                }}
+                {{
+                  createCamionForm.get("marque").hasError("minlength")
+                    ? "1 mot au minimum"
+                    : ""
+                }}
+              </div>
+    </div>
+
+    <div  class="col-sm">
+        <label for="matricule">Matricule</label>
+        <input id="matricule" [ngClass]="
+        (createCamionForm.get('matricule').touched ||
+          createCamionForm.get('matricule').dirty) &&
+        createCamionForm.get('matricule').hasError('required')
+          ? 'is-invalid'
+          : '' || createCamionForm.get('matricule').hasError('minlength')
+          ? 'is-invalid'
+          : '' ||
+            ((createCamionForm.get('matricule').touched ||
+              createCamionForm.get('matricule').dirty) &&
+              !createCamionForm.get('matricule').invalid)
+          ? 'is-valid'
+          : ''
+      "
+        formControlName="matricule" class="form-control "
+               type="text" placeholder="Manufacture" />
+               <div class="invalid-feedback">
+                {{
+                  createCamionForm.get("matricule").hasError("required")
+                    ? " Veuillez entrer le matricule"
+                    : ""
+                }}
+                {{
+                  createCamionForm.get("matricule").hasError("minlength")
+                    ? "3 lettres au minimum"
+                    : ""
+                }}
+              </div>
+    </div>
+</div>
+<div class="row mt-3">
+  <div class="col-sm">
+      <label for="fabric">Année_Fabric</label>
+      <select  class="custom-select" [ngClass]="
+      (createCamionForm.get('fabric').touched ||
+        createCamionForm.get('fabric').dirty) &&
+      createCamionForm.get('fabric').hasError('required')
+        ? 'is-invalid'
+        : '' ||
+          ((createCamionForm.get('fabric').touched ||
+            createCamionForm.get('fabric').dirty) &&
+            !createCamionForm.get('fabric').invalid)
+        ? 'is-valid'
+        : ''
+    "
+       formControlName="fabric" id="fabric">
+       <div class="invalid-feedback">
+        {{
+          createCamionForm.get("entretien").hasError("required")
+            ? "Choisissez l'Année"
+            : ""
+        }}
+       
+
+        </div>
+          <option value='' disabled>Année d'acquisition</option>
+          <option *ngFor="let y of years" value="{{y}}">{{y}}</option>
+      </select>
+
+  </div>
+  <div class="col-sm">
+      <label for="poids">Poids</label>
+      <input id="poids" [ngClass]="
+      (createCamionForm.get('poids').touched ||
+        createCamionForm.get('poids').dirty) &&
+      createCamionForm.get('poids').hasError('required')
+        ? 'is-invalid'
+        : '' || createCamionForm.get('poids').hasError('min')
+        ? 'is-invalid'
+        : '' ||
+          ((createCamionForm.get('poids').touched ||
+            createCamionForm.get('poids').dirty) &&
+            !createCamionForm.get('poids').invalid)
+        ? 'is-valid'
+        : ''
+    "
+      formControlName="poids" class="form-control"
+             type="number"
+             placeholder="Poids" />
+             <div class="invalid-feedback">
+              {{
+                createCamionForm.get("poids").hasError("required")
+                  ? "Entrer le poids"
+                  : ""
+              }}
+              {{
+                createCamionForm.get("poids").hasError("min")
+                  ? "Pas de poids inférieur à 10(kg)"
+                  : ""
+              }}
+            </div>
+  </div>
+  <div class="col-sm">
+      <label for="dernier_entretien">Dernier entretien</label>
+      <input id="dernier_entretien" [ngClass]="
+      (createCamionForm.get('entretien').touched ||
+        createCamionForm.get('entretien').dirty) &&
+      createCamionForm.get('entretien').hasError('required')
+        ? 'is-invalid'
+        : '' || createCamionForm.get('entretien').hasError('minlength')
+        ? 'is-invalid'
+        : '' ||
+          ((createCamionForm.get('entretien').touched ||
+            createCamionForm.get('entretien').dirty) &&
+            !createCamionForm.get('entretien').invalid)
+        ? 'is-valid'
+        : ''
+    "
+      formControlName="entretien" class="form-control"
+             type="date" placeholder="Dernier entretien(Date)"/>
+             <div class="invalid-feedback">
+              {{
+                createCamionForm.get("entretien").hasError("required")
+                  ? " Entrer la date"
+                  : ""
+              }}
+             
+            </div>
+  </div>
+
+</div>
+<div class="row mt-3 mt-5">
+  
+  
+  <div  class="col-sm">
+      <label for="puissance">Puissance</label>
+      <input id="puissance" [ngClass]="
+      (createCamionForm.get('puissance').touched ||
+        createCamionForm.get('puissance').dirty) &&
+      createCamionForm.get('puissance').hasError('required')
+        ? 'is-invalid'
+        : '' || createCamionForm.get('puissance').hasError('min')
+        ? 'is-invalid'
+        : '' ||
+          ((createCamionForm.get('puissance').touched ||
+            createCamionForm.get('puissance').dirty) &&
+            !createCamionForm.get('puissance').invalid)
+        ? 'is-valid'
+        : ''
+    "
+      formControlName="puissance" class="form-control"
+             type="number" placeholder="Puissance"/>
+             <div class="invalid-feedback">
+              {{
+                createCamionForm.get("puissance").hasError("required")
+                  ? "Veuillez entrer la puissance"
+                  : ""
+              }}
+              {{
+                createCamionForm.get("puissance").hasError("min")
+                  ? "Pas de Nombre negative"
+                  : ""
+              }}
+            </div>
+  </div>
+
+  <div  class="col-sm">
+      <label for="serialNumber">Numero de Serie</label>
+      <input id="serialNumber" [ngClass]="
+      (createCamionForm.get('serialNumber').touched ||
+        createCamionForm.get('serialNumber').dirty) &&
+      createCamionForm.get('serialNumber').hasError('required')
+        ? 'is-invalid'
+        : '' || createCamionForm.get('serialNumber').hasError('minlength')
+        ? 'is-invalid'
+        : '' ||
+          ((createCamionForm.get('serialNumber').touched ||
+            createCamionForm.get('serialNumber').dirty) &&
+            !createCamionForm.get('serialNumber').invalid)
+        ? 'is-valid'
+        : ''
+    "
+      formControlName="serialNumber" class="form-control "
+             type="text" placeholder="Numero de serie" />
+             <div class="invalid-feedback">
+              {{
+                createCamionForm.get("serialNumber").hasError("required")
+                  ? " Veuillez entrer le numero"
+                  : ""
+              }}
+              {{
+                createCamionForm.get("serialNumber").hasError("minlength")
+                  ? "3 lettres au minimum"
+                  : ""
+              }}
+            </div>
+  </div>
+</div>
+ 
+  <div class="row mt-3">
+      <div class="col-sm">
+          <label for="couleur">Couleur</label>
+          <input id="couleur" [ngClass]="
+          (createCamionForm.get('couleur').touched ||
+            createCamionForm.get('couleur').dirty) &&
+          createCamionForm.get('couleur').hasError('required')
+            ? 'is-invalid'
+            : '' || createCamionForm.get('couleur').hasError('minlength')
+            ? 'is-invalid'
+            : '' ||
+              ((createCamionForm.get('couleur').touched ||
+                createCamionForm.get('couleur').dirty) &&
+                !createCamionForm.get('couleur').invalid)
+            ? 'is-valid'
+            : ''
+        "
+          formControlName="couleur" class="form-control "
+                 type="text" placeholder="Couleur" />
+                 <div class="invalid-feedback">
+                  {{
+                    createCamionForm.get("couleur").hasError("required")
+                      ? "Entrer la couleur"
+                      : ""
+                  }}
+                  {{
+                    createCamionForm.get("couleur").hasError("minlength")
+                      ? "3 caractères minimum"
+                      : ""
+                  }}
+                </div>
+      </div>
+      <div class="col-sm">
+          <label for="chauffeur">Chauffeur</label>
+          <select class="custom-select" [ngClass]="
+          (createCamionForm.get('chauffeur').touched ||
+            createCamionForm.get('chauffeur').dirty) &&
+          createCamionForm.get('chauffeur').hasError('required')
+            ? 'is-invalid'
+            : '' ||
+              ((createCamionForm.get('chauffeur').touched ||
+                createCamionForm.get('chauffeur').dirty) &&
+                !createCamionForm.get('chauffeur').invalid)
+            ? 'is-valid'
+            : ''
+        "
+          formControlName="chauffeur" id="chauffeur">
+              <option disabled>Chauffeur associé</option>
+              <option *ngFor="let chauffeur of chauffeurArray" value="{{chauffeur.id}}">
+                  {{chauffeur.nomChauffeur}} {{chauffeur.prenomChauffeur}}</option>
+          </select>
+      </div>
+                 <div class="invalid-feedback">
+                  {{
+                    createCamionForm.get("chauffeur").hasError("required")
+                      ? "Choisissez le chauffeur"
+                      : ""
+                  }}
+                 
+                </div>
+
+  </div>
+  <div class="row mt-3">
+
+      
+    <div class=" form-group row mt-2">
+      <div class=" form-group col-sm">
+          <mat-slide-toggle type="checkbox" name="dipo" formControlName="dispo"
+          value="true"  >
+           diponible
+          </mat-slide-toggle>
+      </div>
+      <div class=" form-group col-sm">
+          <mat-slide-toggle type="checkbox" name="isReady" formControlName="isReady"
+          value="true"  >
+           pret
+          </mat-slide-toggle>
+      </div>   
+      <div class=" form-group col-sm">
+          <mat-slide-toggle type="checkbox" name="isUsDot" formControlName="isUsDot"
+          value="true"  >
+           isUsDot
+          </mat-slide-toggle>
+      </div>
+     
+  </div>
+  </div>
+
+          <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+              <button (click)="updateCamion()" (click)="activeModal.dismiss()" [disabled]="createCamionForm.invalid" class="btn btn-primary">Modifier</button>
+              <button class="btn btn-danger" (click)="activeModal.dismiss('modification anulée')">
+                  annuler
+              </button>
+          </div>
+  </form>
+</div>
